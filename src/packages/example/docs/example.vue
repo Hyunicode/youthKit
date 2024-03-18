@@ -4,6 +4,6 @@
 
 <script setup lang="ts">
 const handleClick = () => {
-  alert('Hello, youthKit!')
-}
+  alert("Hello, youthKit!");
+};
 </script>
