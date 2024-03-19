@@ -1,0 +1,14 @@
+# pre-commit hook for Husky
+
+echo "\033[32m [Husky state] \033[0m" pre-commit
+echo "\033[32m [cur branch] \033[0m" $(git branch --show-current)
+echo "\033[32m [to be commited files] \033[0m" 
+echo "$(git diff --name-only --cached)" | sed 's/^/  📦  /'
+echo "\033[32m [style-check] \033[0m" && yarn style-check
+if [ $? -ne 0 ]
+then
+  echo " 🚫 \033[31m Style check failed, please fix the errors and try again. \033[0m"
+  exit 1
+fi
+  echo " ✅ \033[42m Style check passed. \033[0m"
+
