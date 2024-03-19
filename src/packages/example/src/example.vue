@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-const title = "Hello, youthKit!";
+const title = 'Hello, youthKit!';
 const handleClick = () => {
-  console.log("Hello, youthKit!");
+  console.log('Hello, youthKit!');
 };
 </script>
 

@@ -5,7 +5,7 @@
 <yk-example />
 
 ```typescript
-console.log("hello, youthKit!");
+console.log('hello, youthKit!');
 ```
 
 <example />

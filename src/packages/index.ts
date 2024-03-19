@@ -1,5 +1,5 @@
-import { App, Plugin } from "vue";
-import { Example, ExamplePlugin } from "./example";
+import { App, Plugin } from 'vue';
+import { Example, ExamplePlugin } from './example';
 
 const YouthKitPlugin: Plugin = {
   install: (app: App) => {
