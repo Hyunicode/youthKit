@@ -5,6 +5,6 @@ echo "\033[32m [cur branch] \033[0m" $(git branch --show-current)
 echo "\033[32m [to be commited files] \033[0m" 
 echo "$(git diff --name-only --cached)" | sed 's/^/  📦  /'
 echo "\033[32m [style-check] \033[0m"
-(yarn style-check || ((echo "  🚫  \033[31mUnformatted files found, running prettier...\033[0m") && exit 1)) || yarn style-format
+(npx lint-staged || ((echo "  🚫  \033[31mUnformatted files found, running prettier...\033[0m") && exit 1)) || (yarn style-format && echo "  ✅  \033[32mAll files are formatted. Please commit again. \033[0m" && exit 1)
 echo "  ✅  \033[42mStyle check passed. \033[0m"
 
