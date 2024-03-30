@@ -1,0 +1,26 @@
+# commit-msg hook for Husky
+
+commit_msg=`cat $1`
+
+msg_re="^(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|release|workflow)(\(.+\))?:.{1,100}"
+
+if [[ ! $commit_msg =~ $msg_re ]]
+then
+	echo "  🚫  \033[41mInvalid commit message format. \033[0m"
+	echo "  👉  feat(core): add new feature "
+	echo "  👉  fix(core): fix a bug "
+	echo "  👉  docs(core): add docs "
+	echo "  👉  style(core): fix style "
+	echo "  👉  refactor(core): refactor code "
+	echo "  👉  perf(core): improve performance "
+	echo "  👉  test(core): add tests "
+	echo "  👉  build(core): build project "
+	echo "  👉  ci(core): improve ci "
+	echo "  👉  chore(core): update something without impacting user "
+	echo "  👉  release(core): release a new version "
+	echo "  👉  workflow(core): update workflow "
+	echo "  👉  Please fix the commit message and try again. "
+	exit 1
+else
+	echo "  ✅  \033[42mCommit msg format check passed. \033[0m"
+fi
