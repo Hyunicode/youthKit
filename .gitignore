@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# vitepress build output
+src/.vitepress/dist
+src/.vitepress/cache
