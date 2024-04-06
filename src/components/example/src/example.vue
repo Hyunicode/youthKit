@@ -3,18 +3,24 @@ import { ref } from 'vue';
 const exampleText = ref('');
 
 // receive props
-import { defineProps } from 'vue';
 const props = defineProps<{
   text: string;
 }>();
 
 // method
 const handleClick = () => {
-  console.log('hello youthKit');
-  exampleText.value = 'hello youthKit';
+  exampleText.value = '';
+  const text = 'hello youthKit';
+  const timer = setInterval(() => {
+    exampleText.value += text[exampleText.value.length];
+    if (exampleText.value === text) {
+      clearInterval(timer);
+    }
+  }, 100);
+
   setTimeout(() => {
-    exampleText.value = props.text;
-  }, 1000);
+    exampleText.value = '';
+  }, 3000);
 };
 
 // lifecycle
@@ -41,8 +47,9 @@ watch(
 </template>
 
 <style lang="less" scoped>
+@primiColor: #54b980;
 .yk--example {
-  background-color: teal;
+  background-color: @primiColor;
   width: fit-content;
   margin: 20px;
   padding: 5px;
@@ -55,6 +62,7 @@ watch(
   &:hover {
     scale: 1.1;
     transition: all 0.3s;
+    background-color: darken(@primiColor, 10%);
   }
 }
 </style>
