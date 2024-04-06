@@ -10,7 +10,7 @@ const props = defineProps<{
 // method
 const handleClick = () => {
   exampleText.value = '';
-  const text = 'hello youthKit';
+  const text = 'hello_youthKit';
   const timer = setInterval(() => {
     exampleText.value += text[exampleText.value.length];
     if (exampleText.value === text) {
@@ -26,20 +26,11 @@ const handleClick = () => {
 // lifecycle
 import { onMounted, onUnmounted } from 'vue';
 onMounted(() => {
-  console.log('mounted');
+  console.log('mounted', props.text);
 });
 onUnmounted(() => {
   console.log('unmounted');
 });
-
-// watch
-import { watch } from 'vue';
-watch(
-  () => props.text,
-  (newVal, oldVal) => {
-    console.log('text changed', newVal, oldVal);
-  },
-);
 </script>
 
 <template>
