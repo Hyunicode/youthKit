@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: GitHub
-      link: github.com/hyunicode/youthKit
+      link: https://github.com/hyunicode/youthKit
     - theme: alt
       text: 快速上手
       link: /components/example/docs/README.md

@@ -20,6 +20,7 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "@vitejs/plugin-vue": "^5.0.4",

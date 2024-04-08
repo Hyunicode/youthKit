@@ -26,7 +26,12 @@ export default defineConfig({
     ],
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/hyunicode/youthKit' }],
+    footer: {
+      message: 'Released under the MIT License. (dev)',
+      copyright: 'Copyright © 2023-present hyunicode',
+    },
   },
+  lastUpdated: true,
   rewrites: {
     'components/:pkg/docs/(.*)': 'components/:pkg.md',
   },
