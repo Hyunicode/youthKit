@@ -4,13 +4,13 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'YouthKit',
   description: 'A Vue 3 Component Library',
-  head: [['link', { rel: 'icon', href: '/assets/youthKit.png' }]],
+  head: [['link', { rel: 'icon', href: '/youthKit.png' }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/assets/youthKit.png',
+    logo: '/youthKit.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Components', link: '/components/example/docs/README.md' },
+      { text: 'Components', link: '/components/example/README' },
     ],
 
     sidebar: [
@@ -19,7 +19,7 @@ export default defineConfig({
         items: [
           {
             text: 'example',
-            link: '/components/example/docs/README.md',
+            link: '/components/example/README',
           },
         ],
       },
@@ -32,8 +32,8 @@ export default defineConfig({
     },
   },
   lastUpdated: true,
-  rewrites: {
-    'components/:pkg/docs/(.*)': 'components/:pkg.md',
-  },
+  // rewrites: {
+  //   'components/:pkg/docs/(.*)': 'components/:pkg.md',
+  // },
   cleanUrls: true,
 });

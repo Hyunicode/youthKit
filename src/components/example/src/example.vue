@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-const exampleText = ref('');
+import { ref, onMounted, onUnmounted } from 'vue';
 
-// receive props
-const props = defineProps<{
-  text: string;
-}>();
+const exampleText = ref('');
+defineExpose({ exampleText });
+// received props
+const props = defineProps<YkExampleProps>();
 
 // method
 const handleClick = () => {
+  if (exampleText.value) return;
   exampleText.value = '';
   const text = 'hello_youthKit';
   const timer = setInterval(() => {
@@ -17,14 +17,10 @@ const handleClick = () => {
       clearInterval(timer);
     }
   }, 100);
-
-  setTimeout(() => {
-    exampleText.value = '';
-  }, 3000);
+  setTimeout(() => (exampleText.value = ''), 2000);
 };
 
 // lifecycle
-import { onMounted, onUnmounted } from 'vue';
 onMounted(() => {
   console.log('mounted', props.text);
 });
@@ -33,8 +29,17 @@ onUnmounted(() => {
 });
 </script>
 
+<script lang="ts">
+export interface YkExampleProps {
+  text: string;
+  onClick?: (event: MouseEvent) => void;
+}
+</script>
+
 <template>
-  <div class="yk--example" @click="handleClick">{{ exampleText || text }}</div>
+  <div class="yk--example" @click="onClick" @dblclick="handleClick">
+    {{ exampleText || text }}
+  </div>
 </template>
 
 <style lang="less" scoped>

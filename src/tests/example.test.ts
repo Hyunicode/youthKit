@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'vitest';
-import { Example } from '../components/example';
+import { YkExample } from '../components/example';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 
@@ -8,8 +8,8 @@ import { nextTick } from 'vue';
  */
 describe('TEST for Component Example', () => {
   test('render initialization', () => {
-    expect(Example).toBeTruthy();
-    const wrapper = mount(Example, {
+    expect(YkExample).toBeTruthy();
+    const wrapper = mount(YkExample, {
       props: {
         text: '',
       },
@@ -20,7 +20,7 @@ describe('TEST for Component Example', () => {
 
   test('render with props', async () => {
     const randomText = Math.random().toString(36).substring(7);
-    const wrapper = mount(Example, {
+    const wrapper = mount(YkExample, {
       props: {
         text: randomText,
       },
@@ -31,12 +31,22 @@ describe('TEST for Component Example', () => {
   });
 
   test('render with events', async () => {
-    const wrapper = mount(Example, {
+    let count = 0;
+    const wrapper = mount(YkExample, {
       props: {
         text: '',
+        onClick: (text: MouseEvent) => {
+          count++;
+          console.log('click', text);
+        },
       },
     });
     await wrapper.trigger('click');
+    expect(count).toBe(1);
+
+    await wrapper.trigger('dblclick');
+    expect(wrapper.text()).toBe('');
+
     const expectedText = 'hello_youthKit';
     const test_func = async (test: string) => {
       for (let i = 0; i < test.length; i++) {
@@ -46,8 +56,14 @@ describe('TEST for Component Example', () => {
     };
     await test_func(expectedText);
     expect(wrapper.text()).toBe(expectedText);
-    await new Promise((resolve) => setTimeout(resolve, 1600));
+    await new Promise((resolve) => setTimeout(resolve, 600));
     expect(wrapper.text()).toBe('');
+
+    wrapper.trigger('dblclick');
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    wrapper.trigger('dblclick');
+    expect(wrapper.text()).toBe('hel');
+
     wrapper.unmount();
   });
 });

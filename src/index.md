@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'youthKit'
   text: '基于 Vue3 和 TypeScript 的组件库'
-  image: './assets/youthKit.png'
+  image: '/youthKit.png'
   tagline: 体积小巧, 快速响应
   actions:
     - theme: brand
@@ -13,7 +13,7 @@ hero:
       link: https://github.com/hyunicode/youthKit
     - theme: alt
       text: 快速上手
-      link: /components/example/docs/README.md
+      link: /components/example/README
 
 features:
   - icon: 📃

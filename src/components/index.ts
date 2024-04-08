@@ -4,7 +4,7 @@ import { ExamplePlugin } from './example';
 
 const youthKitPlugin: Plugin = {
   install(app: App) {
-    app.use(ExamplePlugin);
+    ExamplePlugin.install?.(app);
   },
 };
 
