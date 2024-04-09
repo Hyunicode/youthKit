@@ -11,7 +11,7 @@ import demo from './docs/demo.vue'
 <<< ./docs/demo.vue
 
 :::
-这是 youthKit 的 example 组件
+这是 youthKit 的 示例 组件
 
 ## 基础用法
 

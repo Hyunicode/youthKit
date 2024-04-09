@@ -38,7 +38,7 @@ export interface Yk{{name}}Props {
 
 <template>
   <div class="yk--{{lowercase name}}" @click="onClick" @dblclick="handleClick">
-    \{\{ {{lowercase name}}Text || text \}\}
+    {{mustache name}}
   </div>
 </template>
 

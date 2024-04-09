@@ -14,7 +14,8 @@
     "docs:build": "vitepress build src",
     "docs:preview": "vitepress preview src",
     "test": "vitest --run --update",
-    "coverage": "vitest --run --coverage"
+    "coverage": "vitest --run --coverage",
+    "new": "node src/scripts/carpenter.js"
   },
   "dependencies": {
     "vue": "^3.4.21"

@@ -1,0 +1,10 @@
+{
+  "basic": [
+    {
+      "name": "Example",
+      "name_cn": "示例",
+      "desc": "this is a Example component.",
+      "category": "basic"
+    }
+  ]
+}

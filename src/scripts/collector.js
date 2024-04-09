@@ -69,7 +69,7 @@ const infoCollector = async () => {
   const META = { name, name_cn, desc, category };
   const LISTPATH = path.resolve(dirname(''), 'src/components/components.json');
 
-  if (!fs.existsSync(LISTPATH)) fs.writeFileSync(LISTPATH, '[]');
+  if (!fs.existsSync(LISTPATH)) fs.writeFileSync(LISTPATH, '{}');
   const list = JSON.parse(fs.readFileSync(LISTPATH, 'utf-8'));
   if (!list[META.category]) list[META.category] = [];
   const exist = list[META.category].find((item) => item.name === META.name);

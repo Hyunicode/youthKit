@@ -5,26 +5,30 @@ import Handlebars from 'handlebars';
 
 const tplReplacer = async (META) => {
   // tpls path
-  const DEMOPATH = path.resolve(dirname(''), 'src/templates/docs/demo.vue.tpl');
-  const READMEPATH = path.resolve(dirname(''), 'src/templates/README.md.tpl');
-  const IMPLEPATH = path.resolve(dirname(''), 'src/templates/src/imple.vue.tpl');
-  const INSTALLPATH = path.resolve(dirname(''), 'src/templates/install.ts.tpl');
+  const demoPath = path.resolve(dirname(''), 'src/templates/components/docs/demo.vue.tpl');
+  const readmePath = path.resolve(dirname(''), 'src/templates/components/README.md.tpl');
+  const implePath = path.resolve(dirname(''), 'src/templates/components/src/imple.vue.tpl');
+  const installPath = path.resolve(dirname(''), 'src/templates/components/install.ts.tpl');
+  const testPath = path.resolve(dirname(''), 'src/templates/test/index.test.ts.tpl');
 
   // read tpl
-  const demoTpl = fs.readFileSync(DEMOPATH, 'utf-8');
-  const readmeTpl = fs.readFileSync(READMEPATH, 'utf-8');
-  const impleTpl = fs.readFileSync(IMPLEPATH, 'utf-8');
-  const installTpl = fs.readFileSync(INSTALLPATH, 'utf-8');
+  const demoTpl = fs.readFileSync(demoPath, 'utf-8');
+  const readmeTpl = fs.readFileSync(readmePath, 'utf-8');
+  const impleTpl = fs.readFileSync(implePath, 'utf-8');
+  const installTpl = fs.readFileSync(installPath, 'utf-8');
+  const testTpl = fs.readFileSync(testPath, 'utf-8');
 
   Handlebars.registerHelper('lowercase', (input) => input.toLowerCase());
+  Handlebars.registerHelper('mustache', (name) => `{{ ${name.toLowerCase()}Text || text }}`);
 
   // replace tpls
   const demoRes = Handlebars.compile(demoTpl)(META);
   const readmeRes = Handlebars.compile(readmeTpl)(META);
   const impleRes = Handlebars.compile(impleTpl)(META);
   const installRes = Handlebars.compile(installTpl)(META);
+  const testRes = Handlebars.compile(testTpl)(META);
 
-  return { demoRes, readmeRes, impleRes, installRes };
+  return { demoRes, readmeRes, impleRes, installRes, testRes };
 };
 
 export { tplReplacer };
