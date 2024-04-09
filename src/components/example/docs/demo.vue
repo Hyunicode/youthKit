@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { YkExampleProps } from '../../';
+import { YkExampleProps } from '../';
 
 const handleClick: YkExampleProps['onClick'] = (event) => {
   console.log('click', event?.target);
