@@ -1,10 +1,11 @@
 import { App, Plugin } from 'vue';
-import Example from './src/example.vue';
+import YkExample, { YkExampleProps } from './src/example.vue';
 
 export const ExamplePlugin: Plugin = {
   install(app: App) {
-    app.component('yk-example', Example);
+    app.component('yk-example', YkExample);
   },
 };
 
-export { Example };
+export { YkExample };
+export type { YkExampleProps };

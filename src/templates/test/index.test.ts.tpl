@@ -1,15 +1,15 @@
 import { expect, test, describe } from 'vitest';
-import { YkExample } from '../components/example';
+import { Yk{{name}} } from '../components/{{lowercase name}}';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 
 /**
  * @vitest-environment jsdom
  */
-describe('TEST for Component Example', () => {
+describe('TEST for Component {{name}}', () => {
   test('render initialization', () => {
-    expect(YkExample).toBeTruthy();
-    const wrapper = mount(YkExample, {
+    expect(Yk{{name}}).toBeTruthy();
+    const wrapper = mount(Yk{{name}}, {
       props: {
         text: '',
       },
@@ -20,7 +20,7 @@ describe('TEST for Component Example', () => {
 
   test('render with props', async () => {
     const randomText = Math.random().toString(36).substring(7);
-    const wrapper = mount(YkExample, {
+    const wrapper = mount(Yk{{name}}, {
       props: {
         text: randomText,
       },
@@ -32,7 +32,7 @@ describe('TEST for Component Example', () => {
 
   test('render with events', async () => {
     let count = 0;
-    const wrapper = mount(YkExample, {
+    const wrapper = mount(Yk{{name}}, {
       props: {
         text: '',
         onClick: (text: MouseEvent) => {

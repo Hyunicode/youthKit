@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const exampleText = ref('');
-defineExpose({ exampleText });
+const {{lowercase name}}Text = ref('');
+defineExpose({ {{lowercase name}}Text });
 // received props
-const props = defineProps<YkExampleProps>();
+const props = defineProps<Yk{{name}}Props>();
 
 // method
 const handleClick = () => {
-  if (exampleText.value) return;
-  exampleText.value = '';
+  if ({{lowercase name}}Text.value) return;
+  {{lowercase name}}Text.value = '';
   const text = 'hello_youthKit';
   const timer = setInterval(() => {
-    exampleText.value += text[exampleText.value.length];
-    if (exampleText.value === text) {
+    {{lowercase name}}Text.value += text[{{lowercase name}}Text.value.length];
+    if ({{lowercase name}}Text.value === text) {
       clearInterval(timer);
     }
   }, 100);
-  setTimeout(() => (exampleText.value = ''), 2000);
+  setTimeout(() => ({{lowercase name}}Text.value = ''), 2000);
 };
 
 // lifecycle
@@ -30,21 +30,21 @@ onUnmounted(() => {
 </script>
 
 <script lang="ts">
-export interface YkExampleProps {
+export interface Yk{{name}}Props {
   text: string;
   onClick?: (event: MouseEvent) => void;
 }
 </script>
 
 <template>
-  <div class="yk--example" @click="onClick" @dblclick="handleClick">
-    {{ exampleText || text }}
+  <div class="yk--{{lowercase name}}" @click="onClick" @dblclick="handleClick">
+    {{mustache name}}
   </div>
 </template>
 
 <style lang="less" scoped>
 @primiColor: #54b980;
-.yk--example {
+.yk--{{lowercase name}} {
   background-color: @primiColor;
   width: fit-content;
   margin: 20px;

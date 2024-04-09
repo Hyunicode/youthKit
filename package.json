@@ -14,12 +14,14 @@
     "docs:build": "vitepress build src",
     "docs:preview": "vitepress preview src",
     "test": "vitest --run --update",
-    "coverage": "vitest --run --coverage"
+    "coverage": "vitest --run --coverage",
+    "new": "node src/scripts/carpenter.js"
   },
   "dependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "@vitejs/plugin-vue": "^5.0.4",
@@ -27,6 +29,7 @@
     "@vue/test-utils": "^2.4.5",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.24.0",
+    "handlebars": "^4.7.8",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
     "less": "^4.2.0",
