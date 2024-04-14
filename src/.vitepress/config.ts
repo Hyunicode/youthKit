@@ -22,7 +22,8 @@ import { defineConfig } from 'vitepress';
       },
       {
         "text": "Components",
-        "link": "/components/example/README"
+        "link": "/components/example/README",
+        "activeMatch": "^/components/"
       }
     ],
     "sidebar": [

@@ -26,7 +26,7 @@ const updater = () => {
     const items = componentList[catagory].map((component) => {
       return {
         text: component.name.toLowerCase() + component.name_cn,
-        link: `/components/${component.name.toLowerCase()}/README`,
+        link: `/components/${component.name.toLowerCase()}`,
       };
     });
     return {
@@ -44,7 +44,7 @@ const updater = () => {
       logo: '/youthKit.png',
       nav: [
         { text: 'Home', link: '/' },
-        { text: 'Components', link: '/components/example/README' },
+        { text: 'Components', link: '/components/example', activeMatch: '^/components/' },
       ],
       sidebar: sidebar,
       socialLinks: [{ icon: 'github', link: 'https://github.com/hyunicode/youthKit' }],
@@ -55,6 +55,9 @@ const updater = () => {
     },
     lastUpdated: true,
     cleanUrls: true,
+    rewrites: {
+      'components/:pkg/(.*)': 'components/:pkg.md',
+    },
   };
 
   const configStr = `import { defineConfig } from 'vitepress';

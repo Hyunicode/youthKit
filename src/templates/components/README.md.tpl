@@ -3,7 +3,7 @@ import demo from './docs/demo.vue'
 
 </script>
 
-# 示例
+# {{name_cn}}
 
 <demo />
 ::: details source
