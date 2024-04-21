@@ -44,7 +44,7 @@ const updater = () => {
       logo: '/youthKit.png',
       nav: [
         { text: 'Home', link: '/' },
-        { text: 'Components', link: '/components/example/README' },
+        { text: 'Components', link: '/components/example/README', activeMatch: '^/components/' },
       ],
       sidebar: sidebar,
       socialLinks: [{ icon: 'github', link: 'https://github.com/hyunicode/youthKit' }],

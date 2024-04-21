@@ -3,7 +3,7 @@ import demo from './docs/demo.vue'
 
 </script>
 
-# 示例
+# {{name}} {{name_cn}}
 
 <demo />
 ::: details source
@@ -11,7 +11,7 @@ import demo from './docs/demo.vue'
 <<< ./docs/demo.vue
 
 :::
-这是 youthKit 的 {{name_cn}} 组件
+ {{name_cn}} 组件: {{desc}}
 
 ## 基础用法
 
