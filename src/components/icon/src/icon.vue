@@ -2,8 +2,7 @@
 import { CSSProperties, computed } from 'vue';
 // method
 const svgs = import.meta.glob('./svg/*.svg', { eager: true, query: '?raw', import: 'default' });
-const getIcon = (name?: string) => {
-  if (!name) return '';
+const getIcon = (name: string) => {
   return svgs[`./svg/${name}.svg`];
 };
 const addUnit = (value: string | number | undefined, defaultUnit = 'px') => {

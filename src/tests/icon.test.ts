@@ -11,58 +11,60 @@ describe('TEST for Component Icon', () => {
     expect(YkIcon).toBeTruthy();
     const wrapper = mount(YkIcon, {
       props: {
-        text: '',
+        name: 'add',
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find('.yk-icon').exists()).toBe(true);
     wrapper.unmount();
   });
 
   test('render with props', async () => {
-    const randomText = Math.random().toString(36).substring(7);
-    const wrapper = mount(YkIcon, {
-      props: {
-        text: randomText,
-      },
-    });
-    await nextTick();
-    expect(wrapper.text()).toBe(randomText);
-    wrapper.unmount();
+    const f = async () => {
+      const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      const randomSize = Math.floor(Math.random() * 100) + (Math.random() > 0.5 ? 'px' : '');
+      const expectedSize = randomSize.endsWith('px') ? randomSize : `${randomSize}px`;
+      const randomLoading = Math.random() > 0.5;
+      const randomProps = {
+        name: 'add',
+        color: randomColor,
+        size: randomSize,
+        loading: randomLoading,
+      };
+      const wrapper = mount(YkIcon, {
+        props: randomProps,
+      });
+      await nextTick();
+      const iconSpan = wrapper.find('.yk-icon');
+      expect(wrapper.find('.is-loading').exists()).toBe(randomLoading);
+      expect(iconSpan.exists()).toBe(true);
+      const style = iconSpan.attributes('style');
+      expect(style).toContain(`--color: ${randomColor}`);
+      expect(style).toContain(`font-size: ${expectedSize}`);
+      const spanStyle = getComputedStyle(iconSpan.element) as CSSStyleDeclaration;
+      expect(spanStyle.getPropertyValue('font-size')).toBe(expectedSize);
+      expect(spanStyle.getPropertyValue('--color')).toBe(randomColor);
+      const svg = iconSpan.find('svg');
+      expect(svg.exists()).toBe(true);
+    };
+    for (let i = 0; i < 100; i++) {
+      await f();
+    }
   });
 
   test('render with events', async () => {
     let count = 0;
     const wrapper = mount(YkIcon, {
       props: {
-        text: '',
-        onClick: (text: MouseEvent) => {
+        name: 'add',
+        onClick: (event: MouseEvent) => {
           count++;
-          console.log('click', text);
+          console.log('click', event);
         },
       },
     });
     await wrapper.trigger('click');
     expect(count).toBe(1);
-
-    await wrapper.trigger('dblclick');
-    expect(wrapper.text()).toBe('');
-
-    const expectedText = 'hello_youthKit';
-    const test_func = async (test: string) => {
-      for (let i = 0; i < test.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, 100));
-        expect(wrapper.text()).toBe(test.slice(0, i + 1));
-      }
-    };
-    await test_func(expectedText);
-    expect(wrapper.text()).toBe(expectedText);
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    expect(wrapper.text()).toBe('');
-
-    wrapper.trigger('dblclick');
-    await new Promise((resolve) => setTimeout(resolve, 350));
-    wrapper.trigger('dblclick');
-    expect(wrapper.text()).toBe('hel');
 
     wrapper.unmount();
   });
