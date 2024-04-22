@@ -36,7 +36,7 @@ const iconList = Object.keys(svgList).map((key) =>
   & > span:hover {
     scale: 1.1;
     transition: 0.3s;
-    background-color: lighten(black, 95%);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: 999;
   }
   .iconWrapper {
