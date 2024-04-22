@@ -5,6 +5,12 @@
       "name_cn": "示例",
       "desc": "this is a Example component.",
       "category": "basic"
+    },
+    {
+      "name": "Icon",
+      "name_cn": "图标",
+      "desc": "一般是用来看的",
+      "category": "basic"
     }
   ]
 }
