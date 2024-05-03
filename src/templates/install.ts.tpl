@@ -1,5 +1,6 @@
 import { App, Plugin } from 'vue';
 
+import '../style/global.less';
 {{#each flatList}}
 import { {{this.name}}Plugin } from './{{this.lowerName}}';
 {{/each}}
