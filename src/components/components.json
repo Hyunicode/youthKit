@@ -12,5 +12,13 @@
       "desc": "一般是用来看的",
       "category": "basic"
     }
+  ],
+  "form": [
+    {
+      "name": "Radio",
+      "name_cn": "单选框",
+      "desc": "在一组备选项中进行单选",
+      "category": "form"
+    }
   ]
 }

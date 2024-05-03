@@ -40,6 +40,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Form',
+        items: [
+          {
+            text: 'radio单选框',
+            link: '/components/radio/README',
+          },
+        ],
+      },
     ],
     socialLinks: [
       {

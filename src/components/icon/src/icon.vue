@@ -5,10 +5,12 @@ const svgs = import.meta.glob('./svg/*.svg', { eager: true, query: '?raw', impor
 const getIcon = (name: string) => {
   return svgs[`./svg/${name}.svg`];
 };
-const addUnit = (value: string | number | undefined, defaultUnit = 'px') => {
-  if (!value) return '';
-  if (typeof value === 'number') return `${value}${defaultUnit}`;
-  return value.includes(defaultUnit) ? value : `${value}${defaultUnit}`;
+const addUnit = (value: string | number, defaultUnit = 'px') => {
+  return typeof value === 'number'
+    ? `${value}${defaultUnit}`
+    : value.includes(defaultUnit)
+      ? value
+      : `${value}${defaultUnit}`;
 };
 const icon = computed(() => getIcon(props.name));
 const style = computed<CSSProperties>(() => {
