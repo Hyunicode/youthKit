@@ -38,6 +38,10 @@ export default defineConfig({
             text: 'icon图标',
             link: '/components/icon/README',
           },
+          {
+            text: 'button按钮',
+            link: '/components/button/README',
+          },
         ],
       },
       {

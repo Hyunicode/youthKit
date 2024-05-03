@@ -11,6 +11,12 @@
       "name_cn": "图标",
       "desc": "一般是用来看的",
       "category": "basic"
+    },
+    {
+      "name": "Button",
+      "name_cn": "按钮",
+      "desc": "无聊的时候可以按一下",
+      "category": "basic"
     }
   ],
   "form": [
