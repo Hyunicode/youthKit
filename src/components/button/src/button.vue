@@ -15,7 +15,7 @@ onBeforeMount(() => {
 
 // method
 const validator = (isSize: boolean, value: string) => {
-  if (isSize) return ['mini', 'small', 'normal', 'large'].includes(value);
+  if (isSize) return ['small', 'normal', 'large'].includes(value);
   else return ['danger', 'info', 'primary', 'success', 'warning'].includes(value);
 };
 
@@ -37,7 +37,7 @@ const style = computed(() => {
 <script lang="ts">
 export interface YkButtonProps {
   type?: 'danger' | 'info' | 'primary' | 'success' | 'warning';
-  size?: 'mini' | 'small' | 'normal' | 'large';
+  size?: 'small' | 'normal' | 'large';
   text?: boolean;
   plain?: boolean;
   round?: boolean;
@@ -47,7 +47,7 @@ export interface YkButtonProps {
   disabled?: boolean;
   color?: string;
   textColor?: string;
-  autofocus?: boolean;
+  content?: string;
   onClick?: () => void;
 }
 </script>
@@ -73,6 +73,7 @@ export interface YkButtonProps {
     <div :class="[BEM('content')]">
       <YkIcon v-if="loading" name="cycle" loading size="size" />
       <YkIcon v-if="!!icon && !loading" :name="validateIcon(icon)" />
+      <span v-if="content">{{ content }}</span>
       <slot />
     </div>
   </button>
@@ -159,8 +160,9 @@ export interface YkButtonProps {
   .yk-button__content {
     display: inline-flex;
     align-items: center;
-    .yk-icon {
-      margin-right: 4px;
+    z-index: 1;
+    .yk-icon:not(:last-child) {
+      margin-right: 8px;
     }
   }
 
@@ -180,6 +182,9 @@ export interface YkButtonProps {
     opacity: 0;
     content: '';
   }
+
+  .button-sizes();
+  .button-color();
 
   &:hover,
   &:active {
@@ -216,7 +221,5 @@ export interface YkButtonProps {
     border: 0 solid transparent;
     background-color: transparent;
   }
-  .button-sizes();
-  .button-color();
 }
 </style>
