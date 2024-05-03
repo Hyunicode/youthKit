@@ -4,6 +4,7 @@ import demo from './docs/demo.vue'
 </script>
 
 # {{name}} {{name_cn}}
+> {{name_cn}}: {{desc}}
 
 <demo />
 ::: details source
@@ -11,26 +12,12 @@ import demo from './docs/demo.vue'
 <<< ./docs/demo.vue
 
 :::
- {{name_cn}} 组件: {{desc}}
 
 ## 基础用法
 
 <yk-{{lowercase name}} text="基础用法"/>
 
 ## 属性
-
-<style>
-table th:first-of-type {
-    width: 4cm;
-}
-table th:nth-of-type(2) {
-    width: 200pt;
-}
-table th:nth-of-type(3)
- {
-    width: 8em;
-}
-</style>
 
 |  参数  | 说明       |  类型  | 可选值<img width=60/> | 默认值<img width=60/> | 必填<img width=40/> |
 | :----: | :--------- | :----: | :-------------------: | :-------------------: | :-----------------: |
