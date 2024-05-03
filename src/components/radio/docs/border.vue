@@ -11,7 +11,7 @@ const radio = ref('SE');
 
 <template>
   <div>
-    <p>Winner: {{ map[radio] }}</p>
+    <p>Winner: {{ map[radio as keyof typeof map] }}</p>
     <yk-radio-group v-model="radio">
       <yk-radio border label="SE">软件学院</yk-radio>
       <yk-radio border label="CS">计算机学院</yk-radio>

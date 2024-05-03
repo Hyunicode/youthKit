@@ -10,5 +10,5 @@ export const RadioPlugin: Plugin = {
   },
 };
 
-export { YkRadio };
+export { YkRadio, YkRadioGroup };
 export type { YkRadioProps, YkRadioGroupProps };
