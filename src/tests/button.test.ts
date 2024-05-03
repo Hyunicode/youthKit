@@ -1,5 +1,5 @@
-import { expect, test, describe } from 'vitest';
-import { YkButton } from '../components/button';
+import { expect, test, describe, vi } from 'vitest';
+import { YkButton, YkButtonProps } from '../components/button';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 
@@ -8,62 +8,139 @@ import { nextTick } from 'vue';
  */
 describe('TEST for Component Button', () => {
   test('render initialization', () => {
-    expect(YkButton).toBeTruthy();
-    const wrapper = mount(YkButton, {
-      props: {
-        text: '',
-      },
-    });
-    expect(wrapper.html()).toMatchSnapshot();
-    wrapper.unmount();
+    const wrapper = mount(YkButton);
+    expect(wrapper.html()).toContain('button');
   });
 
   test('render with props', async () => {
-    const randomText = Math.random().toString(36).substring(7);
-    const wrapper = mount(YkButton, {
+    const consoleError = vi.spyOn(console, 'error');
+
+    // type: ['primary', 'success', 'warning', 'danger', 'info']
+    const types: YkButtonProps['type'][] = ['primary', 'success', 'warning', 'danger', 'info'];
+    for (const type of types) {
+      const wrapper = mount(YkButton, {
+        props: {
+          type,
+        },
+      });
+      await nextTick();
+      expect(wrapper.html()).toContain(`yk-button--${type}`);
+    }
+    mount(YkButton, {
       props: {
-        text: randomText,
+        type: 'errorType' as YkButtonProps['type'],
       },
     });
     await nextTick();
-    expect(wrapper.text()).toBe(randomText);
-    wrapper.unmount();
+    expect(consoleError).toHaveBeenCalled();
+
+    // size: ['small', 'medium', 'large']
+    const sizes: YkButtonProps['size'][] = ['small', 'normal', 'large'];
+    for (const size of sizes) {
+      const wrapper = mount(YkButton, {
+        props: {
+          size,
+        },
+      });
+      await nextTick();
+      expect(wrapper.html()).toContain(`yk-button--${size}`);
+    }
+    mount(YkButton, {
+      props: {
+        size: 'errorSize' as YkButtonProps['size'],
+      },
+    });
+    await nextTick();
+    expect(consoleError).toHaveBeenCalled();
+
+    const f = async () => {
+      const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      const randomTextColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      const randomProps: YkButtonProps = {
+        type: 'primary',
+        size: 'normal',
+        color: undefined,
+        textColor: undefined,
+      };
+      if (Math.random() > 0.5) randomProps.color = randomColor;
+      if (Math.random() > 0.5) randomProps.textColor = randomTextColor;
+      const wrapper = mount(YkButton, {
+        props: randomProps,
+      });
+      await nextTick();
+      const button = wrapper.find('button');
+      const style = button.attributes('style');
+      const buttonStyle = getComputedStyle(button.element) as CSSStyleDeclaration;
+      if (randomProps.color) {
+        expect(style).toContain(`--yk-button-bg-color: ${randomProps.color}`);
+        expect(buttonStyle.getPropertyValue('--yk-button-bg-color')).toBe(randomColor);
+        expect(buttonStyle.getPropertyValue('--yk-button-border-color')).toBe(randomColor);
+      }
+      if (randomProps.textColor) {
+        expect(style).toContain(`--yk-button-text-color: ${randomProps.textColor}`);
+        expect(buttonStyle.getPropertyValue('--yk-button-text-color')).toBe(randomTextColor);
+      }
+    };
+    for (let i = 0; i < 100; i++) {
+      await f();
+    }
+
+    // random loading and icon
+    const g = async () => {
+      const randomLoading = Math.random() > 0.5;
+      const randomIcon = Math.random() > 0.5;
+      const wrapper = mount(YkButton, {
+        props: {
+          loading: randomLoading,
+          icon: randomIcon ? 'acute' : undefined,
+        },
+      });
+      await nextTick();
+      const button = wrapper.find('button');
+      if (randomLoading) {
+        const loading = button.find('.yk-button__content');
+        expect(loading.html()).toContain('is-loading');
+      }
+      if (randomIcon) {
+        expect(button.html()).toContain('yk-icon');
+      }
+    };
+    for (let i = 0; i < 100; i++) {
+      await g();
+    }
+
+    const wrapper = mount(YkButton, {
+      props: {
+        content: 'Click me',
+      },
+    });
+    await nextTick();
+    const content = wrapper.find('.yk-button__content');
+    const children = content.element.children;
+    expect(children.length).toBe(1);
+    expect(children[0].textContent).toBe('Click me');
   });
 
   test('render with events', async () => {
     let count = 0;
+    const randomTimes = Math.floor(Math.random() * 100);
     const wrapper = mount(YkButton, {
       props: {
-        text: '',
-        onClick: (text: MouseEvent) => {
+        onClick: () => {
           count++;
-          console.log('click', text);
         },
       },
+      slots: {
+        default: 'Click me',
+      },
     });
+    await nextTick();
+    expect(count).toBe(0);
     await wrapper.trigger('click');
     expect(count).toBe(1);
-
-    await wrapper.trigger('dblclick');
-    expect(wrapper.text()).toBe('');
-
-    const expectedText = 'hello_youthKit';
-    const test_func = async (test: string) => {
-      for (let i = 0; i < test.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, 100));
-        expect(wrapper.text()).toBe(test.slice(0, i + 1));
-      }
-    };
-    await test_func(expectedText);
-    expect(wrapper.text()).toBe(expectedText);
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    expect(wrapper.text()).toBe('');
-
-    wrapper.trigger('dblclick');
-    await new Promise((resolve) => setTimeout(resolve, 350));
-    wrapper.trigger('dblclick');
-    expect(wrapper.text()).toBe('hel');
-
-    wrapper.unmount();
+    for (let i = 0; i < randomTimes; i++) {
+      await wrapper.trigger('click');
+    }
+    expect(count).toBe(randomTimes + 1);
   });
 });

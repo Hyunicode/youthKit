@@ -19,18 +19,23 @@ const validator = (isSize: boolean, value: string) => {
   else return ['danger', 'info', 'primary', 'success', 'warning'].includes(value);
 };
 
+const handleClick = () => {
+  if (props.onClick) props.onClick();
+};
+
 const { BEM } = createNamespace('button');
 
 // computed
 const style = computed(() => {
-  if (props.color) {
-    return {
-      '--yk-button-bg-color': props.color,
-      '--yk-button-text-color': 'var(--yk-color-white)',
-      '--yk-button-border-color': props.color,
-    };
+  let res: Record<string, string> = {};
+  if (props.color || props.textColor) {
+    if (props.color) {
+      res['--yk-button-bg-color'] = props.color;
+      res['--yk-button-border-color'] = props.color;
+    }
+    if (props.textColor) res['--yk-button-text-color'] = props.textColor;
   }
-  return {};
+  return res;
 });
 </script>
 
@@ -69,6 +74,7 @@ export interface YkButtonProps {
       ...style,
     }"
     :disabled="disabled"
+    @click="handleClick"
   >
     <div :class="[BEM('content')]">
       <YkIcon v-if="loading" name="cycle" loading size="size" />
