@@ -1,0 +1,108 @@
+@colors: {
+  primary: #6e87f8;
+  info: #5c5d5d;
+  success: #9ac99f;
+  warning: #e7be88;
+  danger: #dd8677;
+};
+
+@fontColors: {
+  primary: #303133;
+  regular: #606266;
+  secondary: #909399;
+  placeholder: #a8abb2;
+  disabled: #c0c4cc;
+};
+
+@disabledColors: {
+  bg: #f5f7fa;
+  text: #a8abb2;
+  border: #e4e7ed;
+};
+
+@fontSizes: {
+  mini: 10px;
+  small: 12px;
+  middle: 14px;
+  large: 16px;
+};
+
+@paddingSizes: {
+  base: 4px;
+  mini: 10px;
+  small: 12px;
+  middle: 16px;
+  large: 24px;
+};
+
+@iconSizes: {
+  mini: 16px;
+  small: 18px;
+  middle: 20px;
+  large: 22px;
+};
+
+@buttonSizes: {
+  small: 24px;
+  middle: 32px;
+  large: 40px;
+};
+
+:root {
+  --yk-color-white: #ffffff;
+  --yk-color-black: #000000;
+  --yk-bg-color: var(--yk-color-white);
+
+  --yk-padding-base: 4px;
+  --yk-padding-small: 12px;
+  --yk-padding-middle: 16px;
+  --yk-padding-large: 24px;
+  --yk-line-height-small: 18px;
+  --yk-line-height-middle: 20px;
+  --yk-line-height-large: 22px;
+
+  --yk-border-color: #ebedf0;
+  --yk-border-color-lighter: #ebeef5;
+  --yk-border-width: 1px;
+  --yk-border-style: solid;
+  --yk-border: var(--yk-border-width) solid var(--yk-border-color);
+  --yk-radius-base: 4px;
+  --yk-radius-small: 2px;
+  --yk-radius-middle: 4px;
+  --yk-radius-large: 8px;
+  --yk-radius-round: 20px;
+  --yk-radius-max: 999px;
+
+  --yk-active-opacity: 0.6;
+  --yk-disabled-opacity: 0.5;
+  --yk-overlay-color-lighter: rgba(0, 0, 0, 0.5);
+  --yk-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04), 0px 8px 20px rgba(0, 0, 0, 0.08);
+  --yk-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  --yk-font-line-height-primary: 24px;
+  --yk-transition-duration: 0.3s;
+
+  each(@fontSizes, {
+    --yk-font-size-@{key}: @value;
+  });
+
+  each(@fontColors, {
+  --yk-text-color-@{key}: @value;
+});
+
+  each(@disabledColors, {
+  --yk-disabled-@{key}-color: @value;
+});
+
+  each(@iconSizes, {
+  --yk-icon-size-@{key}: @value;
+});
+
+  each(@colors, {
+  --yk-color-@{key}: @value;
+  --yk-color-@{key}-3: tint(@value, 30%);
+  --yk-color-@{key}-5: tint(@value, 50%);
+  --yk-color-@{key}-7: tint(@value, 70%);
+  --yk-color-@{key}-8: tint(@value, 80%);
+  --yk-color-@{key}-9: tint(@value, 90%);
+});
+}
