@@ -11,17 +11,16 @@ setInterval(
 </script>
 
 <template>
-  <p>三种图标</p>
   <div class="spin">
-    <yk-spin indicator="dot" size="large" :spinning="spinning">
-      <yk-button v-if="!spinning" icon="add_task" type="success" circle />
+    <yk-spin type="dot" size="large" :spinning="spinning">
+      <span class="content_">{{ spinning ? '加载中...' : '加载完成' }}</span>
     </yk-spin>
   </div>
   <div class="spin">
-    <yk-spin indicator="circle" size="large" />
+    <yk-spin type="circle" size="large" />
   </div>
   <div class="spin">
-    <yk-spin indicator="dynamic" size="large" />
+    <yk-spin type="dynamic" size="large" />
   </div>
 </template>
 
@@ -32,5 +31,12 @@ setInterval(
   background-color: aliceblue;
   width: 200px;
   height: 100px;
+}
+.content_ {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

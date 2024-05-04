@@ -7,19 +7,19 @@ const { BEM } = createNamespace('spin');
 // received props
 withDefaults(defineProps<YkSpinProps>(), {
   spinning: true,
-  size: 'default',
-  tip: '',
-  indicator: 'dot',
-  color: '#1677FF',
+  size: 'normal',
+  desc: '',
+  type: 'dot',
+  color: '#6e87f8',
 });
 </script>
 
 <script lang="ts">
 export interface YkSpinProps {
   spinning?: boolean;
-  size?: 'small' | 'default' | 'large';
-  tip?: string;
-  indicator?: 'dot' | 'circle' | 'dynamic';
+  size?: 'small' | 'normal' | 'large';
+  desc?: string;
+  type?: 'dot' | 'circle' | 'dynamic';
   color?: string;
 }
 </script>
@@ -28,22 +28,22 @@ export interface YkSpinProps {
   <div :class="[BEM(), size]" :style="`--color: ${color};`">
     <div v-show="spinning" :class="BEM()">
       <div :class="BEM(`--box`)">
-        <div :class="BEM(`--dot`)" v-if="indicator === 'dot'">
+        <div :class="BEM(`--dot`)" v-if="type === 'dot'">
           <span class="yk-dot-item"></span>
           <span class="yk-dot-item"></span>
           <span class="yk-dot-item"></span>
           <span class="yk-dot-item"></span>
         </div>
-        <div v-if="indicator === 'circle'" :class="BEM('--circle')" />
-        <div v-if="indicator === 'dynamic'" :class="BEM('--dynamic')">
+        <div v-if="type === 'circle'" :class="BEM('--circle')" />
+        <div v-if="type === 'dynamic'" :class="BEM('--dynamic')">
           <svg class="circular" viewBox="0 0 50 50">
             <circle class="path" cx="25" cy="25" r="20" fill="none"></circle>
           </svg>
         </div>
-        <p class="yk-tip" v-show="tip">{{ tip }}</p>
+        <p class="yk-desc" v-show="desc">{{ desc }}</p>
       </div>
     </div>
-    <div :class="[BEM('content'), spinning && BEM('--mash')]">
+    <div :class="[BEM('content'), spinning && BEM('--mask')]">
       <slot></slot>
     </div>
   </div>
@@ -168,7 +168,7 @@ export interface YkSpinProps {
         }
       }
     }
-    .yk-tip {
+    .yk-desc {
       color: var(--color);
       text-align: center;
     }
@@ -193,7 +193,7 @@ export interface YkSpinProps {
       width: 42px;
       height: 42px;
     }
-    .yk-tip {
+    .yk-desc {
       font-size: 16px;
       font-weight: 500;
       line-height: 20px;
@@ -201,7 +201,7 @@ export interface YkSpinProps {
     }
   }
 }
-.default {
+.normal {
   .yk-spin .yk-spin--box {
     .yk-spin--dot {
       width: 28px;
@@ -220,7 +220,7 @@ export interface YkSpinProps {
       width: 34px;
       height: 34px;
     }
-    .yk-tip {
+    .yk-desc {
       font-size: 14px;
       font-weight: 500;
       line-height: 18px;
@@ -229,8 +229,8 @@ export interface YkSpinProps {
   }
 }
 .small {
-  .yk-spin .yk-spin-box {
-    .yk-spin-dot {
+  .yk-spin .yk-spin--box {
+    .yk-spin--dot {
       width: 20px;
       height: 20px;
       .yk-dot-item {
@@ -247,7 +247,7 @@ export interface YkSpinProps {
       width: 26px;
       height: 26px;
     }
-    .yk-tip {
+    .yk-desc {
       font-size: 14px;
       font-weight: 400;
       line-height: 16px;
@@ -262,5 +262,6 @@ export interface YkSpinProps {
   user-select: none;
   pointer-events: none;
   opacity: 0.4;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
