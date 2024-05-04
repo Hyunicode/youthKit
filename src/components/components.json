@@ -26,5 +26,13 @@
       "desc": "在一组备选项中进行单选",
       "category": "form"
     }
+  ],
+  "feedback": [
+    {
+      "name": "Spin",
+      "name_cn": "加载中",
+      "desc": "loading... 可能可以缓解焦虑",
+      "category": "feedback"
+    }
   ]
 }

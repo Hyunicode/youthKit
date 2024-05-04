@@ -53,6 +53,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Feedback',
+        items: [
+          {
+            text: 'spin加载中',
+            link: '/components/spin/README',
+          },
+        ],
+      },
     ],
     socialLinks: [
       {

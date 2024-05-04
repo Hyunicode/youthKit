@@ -5,6 +5,7 @@ import { ExamplePlugin } from './example';
 import { IconPlugin } from './icon';
 import { ButtonPlugin } from './button';
 import { RadioPlugin } from './radio';
+import { SpinPlugin } from './spin';
 
 const youthKitPlugin: Plugin = {
   install(app: App) {
@@ -12,6 +13,7 @@ const youthKitPlugin: Plugin = {
     IconPlugin.install?.(app);
     ButtonPlugin.install?.(app);
     RadioPlugin.install?.(app);
+    SpinPlugin.install?.(app);
   },
 };
 
@@ -21,3 +23,4 @@ export * from './example';
 export * from './icon';
 export * from './button';
 export * from './radio';
+export * from './spin';
