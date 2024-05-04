@@ -14,6 +14,4 @@ describe('TEST for Component Spin', () => {
     expect(wrapper.html()).toMatchSnapshot();
     wrapper.unmount();
   });
-
-  test('render with props', async () => {});
 });
