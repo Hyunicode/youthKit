@@ -7,6 +7,7 @@ import { ButtonPlugin } from './button';
 import { RadioPlugin } from './radio';
 import { SpinPlugin } from './spin';
 import { PaginationPlugin } from './pagination';
+import { EmptyPlugin } from './empty';
 
 const youthKitPlugin: Plugin = {
   install(app: App) {
@@ -16,6 +17,7 @@ const youthKitPlugin: Plugin = {
     RadioPlugin.install?.(app);
     SpinPlugin.install?.(app);
     PaginationPlugin.install?.(app);
+    EmptyPlugin.install?.(app);
   },
 };
 
@@ -27,3 +29,4 @@ export * from './button';
 export * from './radio';
 export * from './spin';
 export * from './pagination';
+export * from './empty';

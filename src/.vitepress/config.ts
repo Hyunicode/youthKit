@@ -69,6 +69,10 @@ export default defineConfig({
             text: 'pagination分页',
             link: '/components/pagination/README',
           },
+          {
+            text: 'empty空状态',
+            link: '/components/empty/README',
+          },
         ],
       },
     ],

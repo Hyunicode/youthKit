@@ -41,6 +41,12 @@
       "name_cn": "分页",
       "desc": "将很长的列表分割成小块",
       "category": "data"
+    },
+    {
+      "name": "Empty",
+      "name_cn": "空状态",
+      "desc": "总不能什么也没有吧",
+      "category": "data"
     }
   ]
 }
