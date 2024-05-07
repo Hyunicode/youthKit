@@ -12,12 +12,11 @@ const { BEM } = createNamespace('pagination');
 const props = withDefaults(defineProps<YkPaginationProps>(), {
   current: 1,
   pageSize: 10,
-  total: 0,
-  pageListNum: 5,
+  pageListLen: 5,
   hideOnSinglePage: false,
-  showQuickJumper: false,
+  showJumper: false,
   showTotal: false,
-  placement: 'right',
+  placement: 'center',
 });
 
 // ref values
@@ -57,7 +56,7 @@ onUnmounted(() => {
  */
 const dealPageList = (curPage: number): number[] => {
   const resList = [];
-  const offset = ~~(props.pageListNum >> 1);
+  const offset = ~~(props.pageListLen >> 1);
   const totalPage = getTotalPage.value;
   let start = curPage - offset;
   let end = curPage + offset;
@@ -82,7 +81,7 @@ const dealPageList = (curPage: number): number[] => {
  */
 const onForward = (): void => {
   currentPage.value =
-    currentPage.value - props.pageListNum > 0 ? currentPage.value - props.pageListNum : 1;
+    currentPage.value - props.pageListLen > 0 ? currentPage.value - props.pageListLen : 1;
 };
 
 /**
@@ -90,8 +89,8 @@ const onForward = (): void => {
  */
 const onBackward = (): void => {
   currentPage.value =
-    currentPage.value + props.pageListNum < getTotalPage.value
-      ? currentPage.value + props.pageListNum
+    currentPage.value + props.pageListLen < getTotalPage.value
+      ? currentPage.value + props.pageListLen
       : getTotalPage.value;
 };
 
@@ -116,12 +115,13 @@ const changePage = (pageNum: number): boolean | void => {
 export interface YkPaginationProps {
   current?: number;
   pageSize?: number;
-  total?: number;
-  pageListNum?: number;
+  total: number;
+  pageListLen?: number;
   hideOnSinglePage?: boolean;
-  showQuickJumper?: boolean;
+  showJumper?: boolean;
   showTotal?: boolean;
   placement?: 'left' | 'center' | 'right';
+  change?: (page: number, pageSize: number) => void;
 }
 </script>
 
@@ -179,7 +179,7 @@ export interface YkPaginationProps {
       >
         <RightArrow :class="BEM('arrow')" />
       </span>
-      <span :class="[BEM('input')]" v-if="showQuickJumper"
+      <span :class="[BEM('input')]" v-if="showJumper"
         >跳至<input type="text" v-model="jumpNumber" />页</span
       >
     </div>
