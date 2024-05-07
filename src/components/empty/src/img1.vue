@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg" style="margin: 20px">
     <g fill="none" fill-rule="evenodd">
       <g transform="translate(24 31.67)">
         <ellipse

@@ -1,5 +1,7 @@
 <script setup>
-import demo from './docs/demo.vue'
+import basic from './docs/basic.vue'
+import description from './docs/description.vue'
+import imag from './docs/imag.vue'
 
 </script>
 
@@ -7,25 +9,43 @@ import demo from './docs/demo.vue'
 
 > 空状态: 总不能什么也没有吧
 
-<demo />
-::: details source
-
-<<< ./docs/demo.vue
-
-:::
-
 ## 基础用法
 
-<yk-empty text="基础用法"/>
+- 有两种预设的空状态, 指定 `image` 属性为 `content` 或 `box`
+
+  <basic />
+
+  ::: details source
+
+  <<< ./docs/basic.vue
+
+  :::
+
+- 可以为空状态指定文本`desc`属性, 接受一个字符串并显示在空状态下方
+
+    <description />
+
+  ::: details source
+
+  <<< ./docs/description.vue
+
+  :::
+
+- 可以通过`image`属性指定一个图片地址
+
+    <imag />
+
+  ::: details source
+
+  <<< ./docs/imag.vue
+
+  :::
 
 ## 属性
 
-|  参数  | 说明       |  类型  | 可选值<img width=60/> | 默认值<img width=60/> | 必填<img width=40/> |
-| :----: | :--------- | :----: | :-------------------: | :-------------------: | :-----------------: |
-| `text` | 显示的文本 | string |           -           |           -           |         是          |
-
-## 事件
-
-| 事件名  |   说明   | 参数列表 | 参数说明 <img width=300/> |
-| :-----: | :------: | :------: | :-----------------------: |
-| `click` | 点击事件 | `event`  |       `MouseEvent`        |
+|     参数     | 说明       |     类型      |     可选值<img width=60/>     | 默认值<img width=60/> | 必填<img width=40/> |
+| :----------: | :--------- | :-----------: | :---------------------------: | :-------------------: | :-----------------: |
+|   `image`    | 显示的图像 |    string     | `content` \|`box`\|`imageURL` |       `content`       |         否          |
+|    `desc`    | 显示的文本 |    string     |               -               |           -           |         否          |
+| `imageStyle` | 图像样式   | CSSProperties |               -               |           -           |         否          |
+| `descStyle`  | 描述样式   | CSSProperties |               -               |           -           |         否          |

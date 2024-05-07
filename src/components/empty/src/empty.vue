@@ -6,10 +6,10 @@ const { BEM } = createNamespace('empty');
 
 // received props
 withDefaults(defineProps<YkEmptyProps>(), {
-  desc: 'nothing here',
-  image: '1',
-  imageStyle: () => ({}),
+  desc: '',
+  image: 'content',
   descStyle: () => ({}),
+  imageStyle: () => ({}),
 });
 </script>
 
@@ -18,16 +18,15 @@ import type { CSSProperties } from 'vue';
 export interface YkEmptyProps {
   desc?: string;
   image?: string;
-  imageStyle?: CSSProperties;
   descStyle?: CSSProperties;
+  imageStyle?: CSSProperties;
 }
 </script>
 
 <template>
   <div :class="BEM()">
-    <status1 v-if="image === '1'" :class="BEM('img1')" :style="imageStyle" />
-
-    <status2 v-else-if="image === '2'" :class="BEM('img2')" :style="imageStyle" />
+    <status1 v-if="image === 'content'" :class="BEM('img1')" :style="imageStyle" />
+    <status2 v-else-if="image === 'box'" :class="BEM('img2')" :style="imageStyle" />
     <slot v-else>
       <img :class="BEM('img')" :src="image" :style="imageStyle" alt="image" />
     </slot>
@@ -47,14 +46,14 @@ export interface YkEmptyProps {
   .yk-empty__img1 {
     display: inline-block;
     vertical-align: bottom;
-    width: 184px;
+    width: 180px;
     height: 100px;
   }
   .yk-empty__img2 {
     display: inline-block;
     vertical-align: bottom;
-    width: 64px;
-    height: 40px;
+    width: 150px;
+    height: 75px;
   }
   .yk-empty__desc {
     margin-top: 8px;
