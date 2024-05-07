@@ -62,6 +62,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Data',
+        items: [
+          {
+            text: 'pagination分页',
+            link: '/components/pagination/README',
+          },
+        ],
+      },
     ],
     socialLinks: [
       {

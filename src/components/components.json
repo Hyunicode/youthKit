@@ -34,5 +34,13 @@
       "desc": "loading... 可能可以缓解焦虑",
       "category": "feedback"
     }
+  ],
+  "data": [
+    {
+      "name": "Pagination",
+      "name_cn": "分页",
+      "desc": "将很长的列表分割成小块",
+      "category": "data"
+    }
   ]
 }
