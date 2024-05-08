@@ -51,6 +51,10 @@ export default defineConfig({
             text: 'radio单选框',
             link: '/components/radio/README',
           },
+          {
+            text: 'table列表',
+            link: '/components/table/README',
+          },
         ],
       },
       {

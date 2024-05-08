@@ -25,6 +25,12 @@
       "name_cn": "单选框",
       "desc": "在一组备选项中进行单选",
       "category": "form"
+    },
+    {
+      "name": "Table",
+      "name_cn": "列表",
+      "desc": "展示结构化数据",
+      "category": "form"
     }
   ],
   "feedback": [

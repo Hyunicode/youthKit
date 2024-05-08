@@ -67,6 +67,9 @@ export interface YkSpinProps {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s;
+
   z-index: 9;
   .yk-spin--box {
     text-align: center;
