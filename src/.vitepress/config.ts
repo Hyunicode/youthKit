@@ -64,6 +64,10 @@ export default defineConfig({
             text: 'spin加载中',
             link: '/components/spin/README',
           },
+          {
+            text: 'popover气泡卡片',
+            link: '/components/popover/README',
+          },
         ],
       },
       {
