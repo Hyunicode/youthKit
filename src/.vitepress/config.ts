@@ -68,6 +68,10 @@ export default defineConfig({
             text: 'popover气泡卡片',
             link: '/components/popover/README',
           },
+          {
+            text: 'message消息提示',
+            link: '/components/message/README',
+          },
         ],
       },
       {

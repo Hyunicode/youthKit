@@ -42,14 +42,7 @@ function cancelRaf(raf: { id: number }): void {
   }
 }
 
-interface Props {
-  title?: string | Slot; // 卡片标题
-  content?: string | Slot; // 卡片内容
-  maxWidth?: string | number; // 卡片内容最大宽度
-  trigger?: 'hover' | 'click'; // 卡片触发方式
-  overlayStyle?: CSSProperties; // 卡片样式
-}
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<YkPopoverProps>(), {
   title: '',
   content: '',
   maxWidth: 'auto',

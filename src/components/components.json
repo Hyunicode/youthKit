@@ -45,6 +45,12 @@
       "name_cn": "气泡卡片",
       "desc": "弹出气泡式卡片展示更多信息",
       "category": "feedback"
+    },
+    {
+      "name": "Message",
+      "name_cn": "消息提示",
+      "desc": "全局的消息提示",
+      "category": "feedback"
     }
   ],
   "data": [
