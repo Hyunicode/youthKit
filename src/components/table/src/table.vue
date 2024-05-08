@@ -7,7 +7,7 @@ withDefaults(defineProps<YkTableProps>(), {
   columns: () => [],
   dataSource: () => [],
   pagination: () => {
-    return { page: 1, pageSize: 10 };
+    return { current: 1, pageSize: 10 };
   },
   showPagination: true,
   hideOnSinglePage: false,
@@ -17,7 +17,7 @@ withDefaults(defineProps<YkTableProps>(), {
 const emit = defineEmits(['change']);
 
 // method
-const changePage = (pager: { page: number; pageSize: number }) => {
+const changePage = (pager: { current: number; pageSize: number }) => {
   emit('change', pager);
 };
 
@@ -33,14 +33,14 @@ const addUnit = (value: string | number, defaultUnit = 'px') => {
 <script lang="ts">
 interface Column {
   title: string;
-  width: number | string;
+  width?: number | string;
   dataIndex: string;
   slots?: string;
 }
 
 interface Pagination {
   pageSize?: number;
-  currentPage?: number;
+  current?: number;
 }
 
 export interface YkTableProps {
@@ -62,7 +62,7 @@ export interface YkTableProps {
         <tr :class="BEM('tr')">
           <th
             :class="BEM('th')"
-            :style="`width: ${addUnit(item.width)};`"
+            :style="`width: ${addUnit(item.width || 30)};`"
             v-for="(item, index) in columns"
             :key="index"
           >
@@ -91,7 +91,7 @@ export interface YkTableProps {
     </table>
     <yk-pagination
       @change="changePage"
-      :current="pagination.currentPage"
+      :current="pagination.current"
       :pageSize="pagination.pageSize"
       :total="total"
       :hideOnSinglePage="hideOnSinglePage"

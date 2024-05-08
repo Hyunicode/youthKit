@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { YkTableProps } from '../src/table.vue';
 const loading = ref(false);
-const total = ref(80);
+const total = ref(0);
 const queryParams = ref({
   pageSize: 5,
   page: 1,
@@ -9,9 +10,8 @@ const queryParams = ref({
 const columns = ref([
   {
     title: '名字',
-    width: 60,
+    width: 30,
     dataIndex: 'name',
-    slot: 'name',
   },
   {
     title: '年龄',
@@ -19,15 +19,14 @@ const columns = ref([
     dataIndex: 'age',
   },
   {
-    title: '职业',
-    width: 50,
-    dataIndex: 'job',
-    slot: 'job',
-  },
-  {
     title: '性别',
     width: 30,
     dataIndex: 'sex',
+  },
+  {
+    title: '邮箱',
+    width: 120,
+    dataIndex: 'mail',
   },
   {
     title: '地址',
@@ -35,49 +34,51 @@ const columns = ref([
     dataIndex: 'address',
   },
 ]);
-const tableData = ref([
-  {
-    name: 'Stephen',
-    age: 30,
-    job: 'player',
-    sex: '男',
-    address: 'CaliforniaCaliforniaCaliforniaCaliforniaCaliforniaCalifornia',
-  },
-  {
-    name: 'Leo',
-    age: 36,
-    job: 'actor',
-    sex: '男',
-    address: 'LA',
-  },
-  {
-    name: 'Mr.Dear',
-    age: 23,
-    job: 'boy',
-    sex: '男',
-    address: 'Beijing',
-  },
-  {
-    name: 'superman',
-    age: 32,
-    job: 'boy',
-    sex: '男',
-    address: 'US',
-  },
-]);
-function getData() {
+const tableData = ref<YkTableProps['dataSource']>([]);
+const getRandomCnStr = (len: number) => {
+  let randomStr = '';
+  for (let i = 0; i < len; i++) {
+    const randomUnicode = Math.floor(Math.random() * (40869 - 19968) + 19968).toString(16);
+    randomStr += String.fromCharCode(Number(`0x${randomUnicode}`));
+  }
+  return randomStr;
+};
+const fetchData = () => {
+  const newPage = [];
+  for (let i = 0; i < 5; i++) {
+    const randomName = getRandomCnStr(Math.floor(Math.random() * 2 + 2));
+    const randomAge = Math.floor(Math.random() * 100);
+    const randomSex = Math.random() > 0.5 ? '男' : '女';
+    const randomMail = `${Math.random()
+      .toString(36)
+      .substr(2)}@${Math.random().toString(36).substr(2)}.com`;
+    const randomAddress = `${getRandomCnStr(2)}省 ${getRandomCnStr(2)}市 ${getRandomCnStr(2)}区`;
+    newPage.push({
+      name: randomName,
+      age: randomAge,
+      sex: randomSex,
+      mail: randomMail,
+      address: randomAddress,
+    });
+  }
+  tableData.value = newPage;
+};
+const getData = () => {
   loading.value = true;
-  // 模拟调用接口获取列表数据
   setTimeout(() => {
+    fetchData();
     loading.value = false;
+    total.value = 100;
   }, 500);
-}
-function onChange(pagination: { page: number; pageSize: number }) {
-  console.log('pagination:', pagination);
+};
+const changePage = (pagination: { page: number; pageSize: number }) => {
   queryParams.value.page = pagination.page;
   queryParams.value.pageSize = pagination.pageSize;
   getData();
-}
+};
+onMounted(() => {
+  getData();
+});
 </script>
 <template>
   <yk-table
@@ -85,7 +86,7 @@ function onChange(pagination: { page: number; pageSize: number }) {
     :data-source="tableData"
     :total="total"
     :loading="loading"
-    @change="onChange"
+    @change="changePage"
   >
   </yk-table>
 </template>
