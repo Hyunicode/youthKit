@@ -1,5 +1,5 @@
 <script setup>
-import demo from './docs/demo.vue'
+import basic from './docs/basic.vue'
 import loading from './docs/loading.vue'
 import empty from './docs/empty.vue'
 
@@ -12,10 +12,10 @@ import empty from './docs/empty.vue'
 ## 基础用法
 
 - 默认显示分页, 支持分页获取数据
-  <demo />
+  <basic />
   ::: details source
 
-  <<< ./docs/demo.vue
+  <<< ./docs/basic.vue
 
   :::
 

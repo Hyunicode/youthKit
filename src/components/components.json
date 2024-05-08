@@ -30,6 +30,12 @@
       "name": "Table",
       "name_cn": "列表",
       "desc": "展示结构化数据",
+      "category": "data"
+    },
+    {
+      "name": "Select",
+      "name_cn": "选择器",
+      "desc": "使用下拉菜单展示选项以供选择",
       "category": "form"
     }
   ],

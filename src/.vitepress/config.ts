@@ -51,9 +51,10 @@ export default defineConfig({
             text: 'radio单选框',
             link: '/components/radio/README',
           },
+
           {
-            text: 'table列表',
-            link: '/components/table/README',
+            text: 'select选择器',
+            link: '/components/select/README',
           },
         ],
       },
@@ -84,6 +85,10 @@ export default defineConfig({
           {
             text: 'empty空状态',
             link: '/components/empty/README',
+          },
+          {
+            text: 'table列表',
+            link: '/components/table/README',
           },
         ],
       },
