@@ -16,7 +16,7 @@ const carpenter = async () => {
 
   const { demoRes, readmeRes, impleRes, installRes, testRes } = await tplReplacer(META);
 
-  // files path
+  // target path
   const lowerName = META.name.toLowerCase();
   const demoPath = path.resolve(dirname(''), `src/components/${lowerName}/docs/demo.vue`);
   const readmePath = path.resolve(dirname(''), `src/components/${lowerName}/README.md`);
@@ -24,7 +24,7 @@ const carpenter = async () => {
   const installPath = path.resolve(dirname(''), `src/components/${lowerName}/index.ts`);
   const testPath = path.resolve(dirname(''), `src/tests/${lowerName}.test.ts`);
 
-  // create and write files
+  // create directories and write files
   try {
     fs.mkdirSync(path.resolve(dirname(''), `src/components/${lowerName}/docs`), {
       recursive: true,
@@ -42,6 +42,7 @@ const carpenter = async () => {
     exit(1);
   }
 
+  // update vitepress docs
   updater();
 };
 

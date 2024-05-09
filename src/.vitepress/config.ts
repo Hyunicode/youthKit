@@ -17,18 +17,18 @@ export default defineConfig({
     logo: '/youthKit.png',
     nav: [
       {
-        text: '主页',
+        text: 'Home',
         link: '/',
       },
       {
-        text: '组件',
+        text: 'Components',
         link: '/components/example/README',
         activeMatch: '^/components/',
       },
     ],
     sidebar: [
       {
-        text: 'Basic基础类',
+        text: 'Basic',
         items: [
           {
             text: 'example示例',
@@ -42,24 +42,39 @@ export default defineConfig({
             text: 'button按钮',
             link: '/components/button/README',
           },
+          {
+            text: 'grid网格布局',
+            link: '/components/grid/README',
+          },
+          {
+            text: 'flex弹性布局',
+            link: '/components/flex/README',
+          },
         ],
       },
       {
-        text: 'Form表单类',
+        text: 'Form',
         items: [
           {
             text: 'radio单选框',
             link: '/components/radio/README',
           },
-
           {
             text: 'select选择器',
             link: '/components/select/README',
           },
+          {
+            text: 'checkoutbox多选器',
+            link: '/components/checkoutbox/README',
+          },
+          {
+            text: 'cascader级联选择器',
+            link: '/components/cascader/README',
+          },
         ],
       },
       {
-        text: 'Feedback反馈类',
+        text: 'Feedback',
         items: [
           {
             text: 'spin加载中',
@@ -76,7 +91,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Data数据类',
+        text: 'Data',
         items: [
           {
             text: 'pagination分页',
@@ -87,7 +102,7 @@ export default defineConfig({
             link: '/components/empty/README',
           },
           {
-            text: 'table列表',
+            text: 'table表格',
             link: '/components/table/README',
           },
         ],

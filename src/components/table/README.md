@@ -5,9 +5,9 @@ import empty from './docs/empty.vue'
 
 </script>
 
-# Table 列表
+# Table 表格
 
-> 列表: 展示结构化数据
+> 表格: 用于展示结构化数据; 支持分页、加载中、空状态等
 
 ## 基础用法
 

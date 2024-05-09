@@ -1,3 +1,14 @@
+<template>
+  <yk-table
+    :columns="columns"
+    :data-source="tableData"
+    :total="total"
+    :loading="loading"
+    @change="changePage"
+  >
+  </yk-table>
+</template>
+
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { YkTableProps } from '../src/table.vue';
@@ -80,13 +91,3 @@ onMounted(() => {
   getData();
 });
 </script>
-<template>
-  <yk-table
-    :columns="columns"
-    :data-source="tableData"
-    :total="total"
-    :loading="loading"
-    @change="changePage"
-  >
-  </yk-table>
-</template>
