@@ -17,18 +17,18 @@ export default defineConfig({
     logo: '/youthKit.png',
     nav: [
       {
-        text: 'Home',
+        text: '主页',
         link: '/',
       },
       {
-        text: 'Components',
+        text: '组件',
         link: '/components/example/README',
         activeMatch: '^/components/',
       },
     ],
     sidebar: [
       {
-        text: 'Basic',
+        text: 'Basic基础类',
         items: [
           {
             text: 'example示例',
@@ -45,7 +45,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Form',
+        text: 'Form表单类',
         items: [
           {
             text: 'radio单选框',
@@ -59,7 +59,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Feedback',
+        text: 'Feedback反馈类',
         items: [
           {
             text: 'spin加载中',
@@ -76,7 +76,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Data',
+        text: 'Data数据类',
         items: [
           {
             text: 'pagination分页',

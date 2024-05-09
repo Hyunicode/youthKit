@@ -39,8 +39,8 @@ interface Column {
 }
 
 interface Pagination {
-  pageSize?: number;
-  current?: number;
+  pageSize: number;
+  current: number;
 }
 
 export interface YkTableProps {
@@ -72,7 +72,7 @@ export interface YkTableProps {
       </thead>
       <tbody :class="BEM('body')" ref="tableRef">
         <tr :class="BEM('tr--loading')" v-show="loading">
-          <yk-spin type="dynamic" size="large" :colspan="columns.length" />
+          <yk-spin type="dynamic" size="large" />
         </tr>
         <tr :class="BEM('tr--empty')" v-show="!total">
           <td :class="BEM('td--empty')" :colspan="columns.length">
@@ -94,11 +94,10 @@ export interface YkTableProps {
       :current="pagination.current"
       :pageSize="pagination.pageSize"
       :total="total"
-      :hideOnSinglePage="hideOnSinglePage"
-      :showQuickJumper="true"
+      :showJumper="true"
       :showTotal="true"
       placement="right"
-      v-if="showPagination && total"
+      v-if="showPagination && total > 0"
     />
   </div>
 </template>
@@ -131,8 +130,12 @@ export interface YkTableProps {
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      &:hover {
+      // odd
+      &:nth-child(even) {
         background-color: #fafafa;
+      }
+      &:hover {
+        background-color: #d7d7d7;
       }
     }
     .yk-table__th {

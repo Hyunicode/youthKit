@@ -44,26 +44,26 @@ import empty from './docs/empty.vue'
 |   showPagination    | 是否显示分页          |              `boolean`              |    `trur`\|`false`    |           `true`            |         否          |
 |     pagination      | 分页配置              | [PaginationProps](#paginationprops) |           -           | `{ page: 1, pageSize: 10 }` |         否          |
 |        total        | 数据总数              |              `number`               |           -           |             `0`             |         否          |
-|       loading       | 加载中状态            |              `boolean`              |    `trur`\|`false`    |           `false`           |         否          |
+|       loading       | 加载中状态            |              `boolean`              |    `true`\|`false`    |           `false`           |         否          |
 
 ### ColumnProps
 
-| 参数<img width=60/> | 说明 <img width=160/>  |  类型<img width=150/>  | 必填<img width=40/> | 默认值 |
-| :-----------------: | :--------------------- | :--------------------: | :-----------------: | :----: |
-|        title        | 列头标题               |        `string`        |         是          |   -    |
-|      dataIndex      | 列数据在数据项中的索引 |        `string`        |         是          |   -    |
-|        width        | 列宽度                 |        `number`        |         否          |   30   |
-|        slot         | 自定义渲染             | `Function` \| `string` |         否          |   -    |
+| 参数<img width=60/> | 说明 <img width=160/>  |  类型<img width=150/>   | 必填<img width=40/> | 默认值 |
+| :-----------------: | :--------------------- | :---------------------: | :-----------------: | :----: |
+|        title        | 列头标题               |        `string`         |         是          |   -    |
+|      dataIndex      | 列数据在数据项中的索引 |        `string`         |         是          |   -    |
+|        width        | 列宽度                 |        `number`         |         否          |   30   |
+|        slot         | 自定义渲染             | `Component` \| `string` |         否          |   -    |
 
 ### PaginationProps
 
 | 参数<img width=60/> | 说明 <img width=160/> | 类型<img width=150/> | 必填<img width=40/> | 默认值 |
 | :-----------------: | :-------------------- | :------------------: | :-----------------: | :----: |
-|       current       | 当前页                |       `number`       |         是          |   -    |
-|      pageSize       | 分页大小              |       `number`       |         是          |   -    |
+|       current       | 当前页                |       `number`       |         否          |   1    |
+|      pageSize       | 分页大小              |       `number`       |         否          |   10   |
 
 ## 事件
 
-| 事件名  |   说明   | 参数列表 | 参数说明 <img width=300/> |
-| :-----: | :------: | :------: | :-----------------------: |
-| `click` | 点击事件 | `event`  |       `MouseEvent`        |
+|  事件名  | 说明<img width=100/> | 参数列表<img width=150/> | 参数说明 <img width=200/> |
+| :------: | :------------------: | :----------------------: | :-----------------------: |
+| `change` |     更改页码事件     |   {`page`, `pageSize`}   |  跳转目标页码, 分页大小   |

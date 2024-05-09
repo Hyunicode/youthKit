@@ -27,7 +27,7 @@ features:
     details: <font size='3'>基于 Vue3 开发, tree-shaking加持, 支持全局导入和按需引用</font> <br> <font color='grey' size='1'>他们说我是 麻雀虽小, 五脏俱全</font>
   - icon: ⚡️
     title: 渲染快速
-    details: <font size='3'>尽量渲染快一点, 至少虚拟列表我是支持的</font> <br> <font color='grey' size='1'>快吗? 快就对了!</font>
+    details: <font size='3'>尽量渲染快一点, 因为我引入的依赖项很少</font> <br> <font color='grey' size='1'>快吗? 快就对了!</font>
   - icon: ⚙️
     title: 使用TypeScript
     details: <font size='3'>全面拥抱TypeScript, 支持更好的 intellisense</font> <br> <font color='grey' size='1'>写代码的时候, 有提示是一种幸福</font>

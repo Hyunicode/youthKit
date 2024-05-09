@@ -10,7 +10,7 @@ const queryParams = ref({
 const columns = ref([
   {
     title: '名字',
-    width: 30,
+    width: 40,
     dataIndex: 'name',
   },
   {
@@ -43,9 +43,9 @@ const getRandomCnStr = (len: number) => {
   }
   return randomStr;
 };
-const fetchData = () => {
+const fetchData = (pageSize: number) => {
   const newPage = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < pageSize; i++) {
     const randomName = getRandomCnStr(Math.floor(Math.random() * 2 + 2));
     const randomAge = Math.floor(Math.random() * 100);
     const randomSex = Math.random() > 0.5 ? '男' : '女';
@@ -66,9 +66,9 @@ const fetchData = () => {
 const getData = () => {
   loading.value = true;
   setTimeout(() => {
-    fetchData();
+    fetchData(5);
     loading.value = false;
-    total.value = 100;
+    total.value = 40;
   }, 500);
 };
 const changePage = (pagination: { page: number; pageSize: number }) => {
