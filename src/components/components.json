@@ -29,6 +29,18 @@
       "name_cn": "弹性布局",
       "desc": "提供水平和垂直方向的响应式布局",
       "category": "basic"
+    },
+    {
+      "name": "Row",
+      "name_cn": "行布局",
+      "desc": "this is a Row component.",
+      "category": "basic"
+    },
+    {
+      "name": "Col",
+      "name_cn": "列布局",
+      "desc": "this is a Col component.",
+      "category": "basic"
     }
   ],
   "form": [

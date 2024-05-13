@@ -1,15 +1,15 @@
 import { expect, test, describe } from 'vitest';
-import { YkCheckoutbox } from '../components/checkbox';
+import { YkCol } from '../components/col';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 
 /**
  * @vitest-environment jsdom
  */
-describe('TEST for Component Checkoutbox', () => {
+describe('TEST for Component Col', () => {
   test('render initialization', () => {
-    expect(YkCheckoutbox).toBeTruthy();
-    const wrapper = mount(YkCheckoutbox, {
+    expect(YkCol).toBeTruthy();
+    const wrapper = mount(YkCol, {
       props: {
         text: '',
       },
@@ -20,7 +20,7 @@ describe('TEST for Component Checkoutbox', () => {
 
   test('render with props', async () => {
     const randomText = Math.random().toString(36).substring(7);
-    const wrapper = mount(YkCheckoutbox, {
+    const wrapper = mount(YkCol, {
       props: {
         text: randomText,
       },
@@ -32,7 +32,7 @@ describe('TEST for Component Checkoutbox', () => {
 
   test('render with events', async () => {
     let count = 0;
-    const wrapper = mount(YkCheckoutbox, {
+    const wrapper = mount(YkCol, {
       props: {
         text: '',
         onClick: (text: MouseEvent) => {

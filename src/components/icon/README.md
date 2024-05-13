@@ -5,15 +5,15 @@ import demo from './docs/demo.vue'
 
 # Icon 图标
 
-<demo />
+> 图标组件: 一般是用来看的
+
+## 基础用法
 
 ::: details 代码
+
 <<< ./docs/demo.vue{15}
 
 :::
-图标组件: 一般是用来看的
-
-## 基础用法
 
 ##### loading状态
 
@@ -41,6 +41,10 @@ import demo from './docs/demo.vue'
     <yk-icon style="margin: 20px" name="app_registration" size='64'/>
     <yk-icon style="margin: 20px" name="add_circle" size='96'/>
 </div>
+
+## 图标列表
+
+<demo />
 
 ## 属性
 

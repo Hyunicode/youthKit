@@ -44,7 +44,7 @@ export default defineConfig({
           },
           {
             text: 'grid网格布局',
-            link: '/components/grid/README',
+            link: '/components/col/README',
           },
           {
             text: 'flex弹性布局',
@@ -64,8 +64,8 @@ export default defineConfig({
             link: '/components/select/README',
           },
           {
-            text: 'checkoutbox多选器',
-            link: '/components/checkoutbox/README',
+            text: 'checkbox多选器',
+            link: '/components/checkbox/README',
           },
           {
             text: 'cascader级联选择器',
@@ -102,7 +102,7 @@ export default defineConfig({
             link: '/components/empty/README',
           },
           {
-            text: 'table表格',
+            text: 'table列表',
             link: '/components/table/README',
           },
         ],

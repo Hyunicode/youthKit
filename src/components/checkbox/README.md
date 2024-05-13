@@ -16,8 +16,6 @@ import demo from './docs/demo.vue'
 
 ## 基础用法
 
-<yk-checkoutbox text="基础用法"/>
-
 ## 属性
 
 |  参数  | 说明       |  类型  | 可选值<img width=60/> | 默认值<img width=60/> | 必填<img width=40/> |
