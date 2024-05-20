@@ -13,7 +13,8 @@ import resp from './docs/resp.vue';
 ## 基础用法
 
 - 基础栅格
-  <demo />
+  <ClientOnly><demo /></ClientOnly>
+
   ::: details source
 
   <<< ./docs/demo.vue
@@ -21,7 +22,8 @@ import resp from './docs/resp.vue';
   :::
 
 - 响应式栅格
-  <resp />
+  <ClientOnly><resp /></ClientOnly>
+
   ::: details source
 
   <<< ./docs/resp.vue

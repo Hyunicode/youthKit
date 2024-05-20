@@ -13,8 +13,7 @@ import content from './docs/desc.vue'
 ## 基础用法
 
 - 三种加载图标
-
-  <basic />
+  <ClientOnly><basic /></ClientOnly>
 
   ::: details source
 

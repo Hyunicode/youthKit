@@ -31,3 +31,4 @@ src/.vitepress/cache
 # vitest snapshots & coverage
 src/tests/__snapshots__
 coverage
+.vercel

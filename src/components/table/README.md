@@ -48,19 +48,19 @@ import empty from './docs/empty.vue'
 
 ### ColumnProps
 
-| 参数<img width=60/> | 说明 <img width=160/>  |  类型<img width=150/>   | 必填<img width=40/> | 默认值 |
-| :-----------------: | :--------------------- | :---------------------: | :-----------------: | :----: |
-|        title        | 列头标题               |        `string`         |         是          |   -    |
-|      dataIndex      | 列数据在数据项中的索引 |        `string`         |         是          |   -    |
-|        width        | 列宽度                 |        `number`         |         否          |   30   |
-|        slot         | 自定义渲染             | `Component` \| `string` |         否          |   -    |
+| 参数<img width=60/> | 说明 <img width=160/>  |  类型<img width=150/>   | 必填<img width=40/> | 默认值<img width=60/> |
+| :-----------------: | :--------------------- | :---------------------: | :-----------------: | :-------------------: |
+|        title        | 列头标题               |        `string`         |         是          |           -           |
+|      dataIndex      | 列数据在数据项中的索引 |        `string`         |         是          |           -           |
+|        width        | 列宽度                 |        `number`         |         否          |          30           |
+|        slot         | 自定义渲染             | `Component` \| `string` |         否          |           -           |
 
 ### PaginationProps
 
-| 参数<img width=60/> | 说明 <img width=160/> | 类型<img width=150/> | 必填<img width=40/> | 默认值 |
-| :-----------------: | :-------------------- | :------------------: | :-----------------: | :----: |
-|       current       | 当前页                |       `number`       |         否          |   1    |
-|      pageSize       | 分页大小              |       `number`       |         否          |   10   |
+| 参数<img width=60/> | 说明 <img width=160/> | 类型<img width=150/> | 必填<img width=40/> | 默认值<img width=60/> |
+| :-----------------: | :-------------------- | :------------------: | :-----------------: | :-------------------: |
+|       current       | 当前页                |       `number`       |         否          |           1           |
+|      pageSize       | 分页大小              |       `number`       |         否          |          10           |
 
 ## 事件
 

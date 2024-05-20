@@ -12,16 +12,16 @@ import jump from './docs/jump-total.vue'
 
 - `Pagination` 组件提供了基础的分页功能，可以通过 `placement` 属性设置分页的对齐方式, 并注册 `change` 事件监听页码变化
 
-  <basic />
-  ::: details source
+<ClientOnly><basic /></ClientOnly>
 
-  <<< ./docs/basic.vue
+::: details source
 
-  :::
+<<< ./docs/basic.vue
+
+:::
 
 - 可以通过 `showJumper` 属性设置是否显示快速跳转输入框，通过 `showTotal` 属性设置是否显示总条数
-
-  <jump />
+  <ClientOnly><jump /></ClientOnly>
 
   ::: details source
 
