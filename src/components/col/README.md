@@ -70,17 +70,17 @@ import align from './docs/align.vue';
 
 ### Row
 
-|  参数   | 说明 <img width=20/> |                               类型 <img width=300/>                               | 默认值  |  必传   |
-| :-----: | :------------------: | :-------------------------------------------------------------------------------: | :-----: | :-----: |
-|  width  |        行宽度        |                               `string` \| `number`                                | `auto`  | `false` |
-| gutter  |      栅格间隔，      |                   `number` \| [responsiveType](#responsivetype)                   |   `0`   | `false` |
-|  wrap   |     是否自动换行     |                                     `boolean`                                     | `false` | `false` |
-|  align  |     垂直对齐方式     |                    `top` \| `middle` \| `bottom` \| `stretch`                     |  `top`  | `false` |
-| justify |     水平排列方式     | `start` \| `end` \| `center`\|`space-around` \| `space-between` \| `space-evenly` | `start` | `false` |
+|  参数   | 说明 <img width=100/> |                               类型 <img width=200/>                               | 默认值  |  必传   |
+| :-----: | :-------------------: | :-------------------------------------------------------------------------------: | :-----: | :-----: |
+|  width  |        行宽度         |                               `string` \| `number`                                | `auto`  | `false` |
+| gutter  |      栅格间隔，       |                   `number` \| [responsiveType](#responsivetype)                   |   `0`   | `false` |
+|  wrap   |     是否自动换行      |                                     `boolean`                                     | `false` | `false` |
+|  align  |     垂直对齐方式      |                    `top` \| `middle` \| `bottom` \| `stretch`                     |  `top`  | `false` |
+| justify |     水平排列方式      | `start` \| `end` \| `center`\|`space-around` \| `space-between` \| `space-evenly` | `start` | `false` |
 
 ### responsiveType
 
-| 名称 |         说明         |   类型   |  必传   |
+| 名称 | 说明<img width=200/> |   类型   |  必传   |
 | :--: | :------------------: | :------: | :-----: |
 |  xs  | `<576px` 响应式栅格  | `number` | `false` |
 |  sm  | `≥576px` 响应式栅格  | `number` | `false` |
@@ -91,14 +91,14 @@ import align from './docs/align.vue';
 
 ### Col
 
-|  参数  |         说明         |                       类型                        |   默认值    |  必传   |
-| :----: | :------------------: | :-----------------------------------------------: | :---------: | :-----: |
-|  span  |     栅格占位格数     |                     `number`                      |    `24`     | `false` |
-| offset |  栅格左侧的间隔格数  |                     `number`                      |     `0`     | `false` |
-|  flex  |      flex basic      |               `string` \| `number`                |   `auto`    | `false` |
-|   xs   | `<576px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
-|   sm   | `≥576px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
-|   md   | `≥768px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
-|   lg   | `≥992px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
-|   xl   | `≥1200px` 响应式栅格 | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
-|  xxl   | `≥1600px` 响应式栅格 | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
+|  参数  |         说明         |             类型              |   默认值    |  必传   |
+| :----: | :------------------: | :---------------------------: | :---------: | :-----: |
+|  span  |     栅格占位格数     |           `number`            |    `24`     | `false` |
+| offset |  栅格左侧的间隔格数  |           `number`            |     `0`     | `false` |
+|  flex  |      flex basic      |     `string` \| `number`      |   `auto`    | `false` |
+|   xs   | `<576px` 响应式栅格  | `number` \| `{span; offset?}` | `undefined` | `false` |
+|   sm   | `≥576px` 响应式栅格  | `number` \| `{span; offset?}` | `undefined` | `false` |
+|   md   | `≥768px` 响应式栅格  | `number` \| `{span; offset?}` | `undefined` | `false` |
+|   lg   | `≥992px` 响应式栅格  | `number` \| `{span; offset?}` | `undefined` | `false` |
+|   xl   | `≥1200px` 响应式栅格 | `number` \| `{span; offset?}` | `undefined` | `false` |
+|  xxl   | `≥1600px` 响应式栅格 | `number` \| `{span; offset?}` | `undefined` | `false` |

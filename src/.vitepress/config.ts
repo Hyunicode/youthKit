@@ -119,6 +119,5 @@ export default defineConfig({
       copyright: 'Copyright © 2023-present hyunicode',
     },
   },
-  lastUpdated: true,
   cleanUrls: true,
 });

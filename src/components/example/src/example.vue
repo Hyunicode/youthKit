@@ -43,7 +43,7 @@ export interface YkExampleProps {
 </template>
 
 <style lang="less" scoped>
-@primiColor: #54b980;
+@primiColor: lighten(#7386f0, 5%);
 .yk--example {
   background-color: @primiColor;
   width: fit-content;
