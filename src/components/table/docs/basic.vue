@@ -77,7 +77,7 @@ const fetchData = (pageSize: number) => {
 const getData = () => {
   loading.value = true;
   setTimeout(() => {
-    fetchData(5);
+    fetchData(10);
     loading.value = false;
     total.value = 40;
   }, 500);

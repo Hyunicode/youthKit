@@ -11,9 +11,12 @@ hero:
     - theme: brand
       text: GitHub
       link: https://github.com/hyunicode/youthKit
+    - theme: brand
+      text: npm
+      link: https://www.npmjs.com/package/youthkit
     - theme: alt
       text: 快速上手
-      link: /components/example/README
+      link: /desc
 
 features:
   - icon: 📃

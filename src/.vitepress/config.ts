@@ -22,7 +22,7 @@ export default defineConfig({
       },
       {
         text: '组件',
-        link: '/components/example/README',
+        link: '/components/table/README',
         activeMatch: '^/components/',
       },
     ],
