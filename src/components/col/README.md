@@ -1,6 +1,9 @@
 <script setup>
 import demo from './docs/demo.vue';
 import resp from './docs/resp.vue';
+import offset from './docs/offset.vue';
+import justify from './docs/justify.vue';
+import align from './docs/align.vue';
 
 </script>
 
@@ -11,6 +14,12 @@ import resp from './docs/resp.vue';
 > 基于 row 和 col 的概念, 通过 row 定义行，通过 col 定义列，实现页面布局。
 
 ## 基础用法
+
+- 说明
+
+  1. 你的内容应当放置于 col 内，并且，只有 col 可以作为 row 的直接元素
+  2. 栅格系统中的列是指 1 到 24 的值来表示其跨越的范围
+  3. 如果一个 row 中的 col 总和超过 24，那么多余的 col 会作为一个整体另起一行排列
 
 - 基础栅格
   <ClientOnly><demo /></ClientOnly>
@@ -27,6 +36,33 @@ import resp from './docs/resp.vue';
   ::: details source
 
   <<< ./docs/resp.vue
+
+  :::
+
+- 栅格偏移
+  <ClientOnly><offset /></ClientOnly>
+
+  ::: details source
+
+  <<< ./docs/offset.vue
+
+  :::
+
+- 栅格对齐
+  <ClientOnly><justify /></ClientOnly>
+
+  ::: details source
+
+  <<< ./docs/justify.vue
+
+  :::
+
+- 栅格排列
+  <ClientOnly><align /></ClientOnly>
+
+  ::: details source
+
+  <<< ./docs/align.vue
 
   :::
 
@@ -60,7 +96,6 @@ import resp from './docs/resp.vue';
 |  span  |     栅格占位格数     |                     `number`                      |    `24`     | `false` |
 | offset |  栅格左侧的间隔格数  |                     `number`                      |     `0`     | `false` |
 |  flex  |      flex basic      |               `string` \| `number`                |   `auto`    | `false` |
-|  flex  |   `flex` 布局填充    |               `string` \| `number`                |     ''      | `false` |
 |   xs   | `<576px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
 |   sm   | `≥576px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |
 |   md   | `≥768px` 响应式栅格  | `number` \| `{span: number&#44; offset?: number}` | `undefined` | `false` |

@@ -45,7 +45,7 @@
   <yk-button icon="all_match" type="success" circle />
   <yk-button icon="browse_activity" type="info" circle />
   <yk-button icon="apps_outage" type="warning" circle />
-  <yk-button icon="cancel" type="error" circle />
+  <yk-button icon="cancel" type="danger" circle />
 
   <p>指定size</p>
   <yk-button type="info" round size="large">Large</yk-button>

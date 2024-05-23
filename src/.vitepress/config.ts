@@ -17,11 +17,11 @@ export default defineConfig({
     logo: '/youthKit.png',
     nav: [
       {
-        text: 'Home',
+        text: '主页',
         link: '/',
       },
       {
-        text: 'Components',
+        text: '组件',
         link: '/components/example/README',
         activeMatch: '^/components/',
       },

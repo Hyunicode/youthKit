@@ -43,8 +43,8 @@ const updater = () => {
       // https://vitepress.dev/reference/default-theme-config
       logo: '/youthKit.png',
       nav: [
-        { text: 'Home', link: '/' },
-        { text: 'Components', link: '/components/example/README', activeMatch: '^/components/' },
+        { text: '主页', link: '/' },
+        { text: '组件', link: '/components/example/README', activeMatch: '^/components/' },
       ],
       sidebar: sidebar,
       socialLinks: [{ icon: 'github', link: 'https://github.com/hyunicode/youthKit' }],
