@@ -142,22 +142,22 @@ function onHideMessage(index: number) {
 }
 </script>
 <script lang="ts">
-interface YkMessageProps {
+export interface YkMessageProps {
   duration?: number; // 自动关闭的延时，单位ms
   top?: number | string; // 消息距离顶部的位置，单位px
 }
 </script>
 
 <template>
-  <div class="m-message-wrap" :style="`top: ${messTop};`">
+  <div class="yk-message-wrap" :style="`top: ${messTop};`">
     <TransitionGroup name="slide-fade">
       <div
-        class="m-message"
+        class="yk-message"
         v-show="showMessage[index]"
         v-for="(message, index) in messageContent"
         :key="index"
       >
-        <div class="m-message-content" @mouseenter="onEnter(index)" @mouseleave="onLeave(index)">
+        <div class="yk-message-content" @mouseenter="onEnter(index)" @mouseleave="onLeave(index)">
           <svg
             class="u-svg"
             v-if="message.mode === 'info'"
@@ -245,19 +245,19 @@ interface YkMessageProps {
   right: 0;
   margin: 0 auto;
 }
-.m-message-wrap {
+.yk-message-wrap {
   position: fixed;
   z-index: 999; // 突出显示该层级
   width: 100%;
   left: 0;
   right: 0;
   pointer-events: none; // 保证整个message区域不遮挡背后元素响应鼠标事件
-  .m-message {
+  .yk-message {
     text-align: center;
     &:not(:last-child) {
       margin-bottom: 8px;
     }
-    .m-message-content {
+    .yk-message-content {
       display: inline-flex;
       align-items: center;
       padding: 9px 12px;

@@ -1,5 +1,5 @@
 import { App, Plugin } from 'vue';
-import YkRow, { YkRowProps } from './src/row.vue';
+import YkRow from './src/row.vue';
 
 export const RowPlugin: Plugin = {
   install(app: App) {
@@ -8,4 +8,3 @@ export const RowPlugin: Plugin = {
 };
 
 export { YkRow };
-export type { YkRowProps };

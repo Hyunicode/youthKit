@@ -111,7 +111,7 @@ export interface YkColProps {
 
 <template>
   <div
-    :class="`m-col col-${responsiveProperty?.span || span} offset-${responsiveProperty?.offset || offset}`"
+    :class="`yk-col col-${responsiveProperty?.span || span} offset-${responsiveProperty?.offset || offset}`"
     style="padding-left: var(--xGap); padding-right: var(--xGap)"
     :style="`flex: ${flexValue}`"
   >
@@ -120,7 +120,7 @@ export interface YkColProps {
 </template>
 
 <style lang="less" scoped>
-.m-col {
+.yk-col {
   position: relative;
   max-width: 100%;
   min-height: 1px;

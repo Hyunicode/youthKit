@@ -189,9 +189,9 @@ export interface YkSelectProps {
 </script>
 
 <template>
-  <div class="m-select" :style="`height: ${height}px;`">
+  <div class="yk-select" :style="`height: ${height}px;`">
     <div
-      :class="['m-select-wrap', { hover: !disabled, focus: showOptions, disabled: disabled }]"
+      :class="['yk-select-wrap', { hover: !disabled, focus: showOptions, disabled: disabled }]"
       :style="`width: ${width}px; height: ${height}px;`"
       tabindex="1"
       ref="selectRef"
@@ -254,7 +254,7 @@ export interface YkSelectProps {
     <TransitionGroup name="fade" tag="div">
       <div
         v-show="showOptions && filterOptions && filterOptions.length"
-        class="m-options-panel"
+        class="yk-options-panel"
         @mouseenter="onEnter"
         @mouseleave="onLeave"
         key="1"
@@ -281,7 +281,7 @@ export interface YkSelectProps {
       <div
         v-show="showOptions && filterOptions && !filterOptions.length"
         key="2"
-        class="m-empty-wrap"
+        class="yk-empty-wrap"
         :style="`top: ${height + 4}px; width: ${width}px;`"
       >
         <yk-empty image="content" key="2" />
@@ -293,7 +293,7 @@ export interface YkSelectProps {
 @import '../../../style/global.less';
 @themeColor: @colors[primary];
 
-.m-select {
+.yk-select {
   position: relative;
   display: inline-block;
   font-size: 14px;
@@ -316,7 +316,7 @@ export interface YkSelectProps {
   transform: scaleY(1);
   opacity: 0;
 }
-.m-select-wrap {
+.yk-select-wrap {
   position: relative;
   z-index: 8;
   display: inline-block;
@@ -406,7 +406,7 @@ export interface YkSelectProps {
   user-select: none;
   cursor: not-allowed;
 }
-.m-options-panel {
+.yk-options-panel {
   position: absolute;
   z-index: 9;
   overflow: auto;
@@ -448,7 +448,7 @@ export interface YkSelectProps {
     cursor: not-allowed;
   }
 }
-.m-empty-wrap {
+.yk-empty-wrap {
   position: absolute;
   z-index: 9;
   height: 100px;

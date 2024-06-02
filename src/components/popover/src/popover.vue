@@ -114,29 +114,29 @@ export interface YkPopoverProps {
 
 <template>
   <div
-    class="m-popover"
+    class="yk-popover"
     @mouseenter="trigger === 'hover' ? onShow() : () => false"
     @mouseleave="trigger === 'hover' ? onHide() : () => false"
   >
     <div
       ref="popRef"
       tabindex="1"
-      class="m-pop-content"
+      class="yk-pop-content"
       :class="{ 'show-pop': visible }"
       :style="`max-width: ${popMaxWidth}; top: ${-top}px; left: ${-left}px;`"
       @blur="trigger === 'click' && activeBlur ? onBlur() : () => false"
       @mouseenter="trigger === 'hover' ? onShow() : () => false"
       @mouseleave="trigger === 'hover' ? onHide() : () => false"
     >
-      <div class="m-pop" :style="overlayStyle">
-        <div class="m-title">
+      <div class="yk-pop" :style="overlayStyle">
+        <div class="yk-title">
           <slot name="title">{{ title }}</slot>
         </div>
-        <div class="m-content">
+        <div class="yk-content">
           <slot name="content">{{ content }}</slot>
         </div>
       </div>
-      <div class="m-pop-arrow">
+      <div class="yk-pop-arrow">
         <span class="u-pop-arrow"></span>
       </div>
     </div>
@@ -151,10 +151,10 @@ export interface YkPopoverProps {
   </div>
 </template>
 <style lang="less" scoped>
-.m-popover {
+.yk-popover {
   position: relative;
   display: inline-block;
-  .m-pop-content {
+  .yk-pop-content {
     position: absolute;
     z-index: 999;
     width: max-content;
@@ -167,7 +167,7 @@ export interface YkPopoverProps {
     transition:
       transform 0.25s,
       opacity 0.25s;
-    .m-pop {
+    .yk-pop {
       min-width: 32px;
       min-height: 32px;
       padding: 12px;
@@ -185,17 +185,17 @@ export interface YkPopoverProps {
         0 6px 16px 0 rgba(0, 0, 0, 0.08),
         0 3px 6px -4px rgba(0, 0, 0, 0.12),
         0 9px 28px 8px rgba(0, 0, 0, 0.05);
-      .m-title {
+      .yk-title {
         min-width: 176px;
         margin-bottom: 8px;
         color: rgba(0, 0, 0, 0.88);
         font-weight: 600;
       }
-      .m-content {
+      .yk-content {
         color: rgba(0, 0, 0, 0.88);
       }
     }
-    .m-pop-arrow {
+    .yk-pop-arrow {
       position: absolute;
       z-index: 9;
       left: 50%;
